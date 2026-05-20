@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://fh1mshwykcx6"]
+
+[ext_resource type="Script" uid="uid://cawisrl45g0ot" path="res://Player/PlayerMovementC.cs" id="1_3qydi"]
+[ext_resource type="Script" uid="uid://uqv4bq2g4k64" path="res://Player/PlayerStateMachine.cs" id="2_q3lat"]
+[ext_resource type="Script" uid="uid://db28l2g78fllb" path="res://Player/states/IdleState.cs" id="3_ddoul"]
+[ext_resource type="Script" uid="uid://bofg1okarcly7" path="res://Player/states/WalkingState.cs" id="4_8g4oa"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_l2ndj"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_3qydi"]
+
+[node name="Player" type="CharacterBody3D" unique_id=465011966]
+script = ExtResource("1_3qydi")
+_BobStrength = 0.032
+
+[node name="Collision3d" type="CollisionShape3D" parent="." unique_id=1891527393]
+shape = SubResource("CapsuleShape3D_l2ndj")
+
+[node name="Mesh" type="MeshInstance3D" parent="." unique_id=1211093894]
+cast_shadow = 0
+mesh = SubResource("CapsuleMesh_3qydi")
+
+[node name="Head" type="Marker3D" parent="." unique_id=1112093883]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.510141, 0)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Head" unique_id=414504045]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.510141, 0)
+light_color = Color(0.84078455, 0.72686476, 0.5671593, 1)
+shadow_enabled = true
+distance_fade_enabled = true
+spot_range = 6.583152
+spot_angle = 31.445127
+
+[node name="Camera3D" type="Camera3D" parent="Head" unique_id=234579315]
+
+[node name="PlayerStateMachine" type="Node" parent="." unique_id=67301663 node_paths=PackedStringArray("CurrentState")]
+script = ExtResource("2_q3lat")
+CurrentState = NodePath("IdleState")
+
+[node name="IdleState" type="Node" parent="PlayerStateMachine" unique_id=1261418930]
+script = ExtResource("3_ddoul")
+
+[node name="WalkingState" type="Node" parent="PlayerStateMachine" unique_id=434475098]
+script = ExtResource("4_8g4oa")
+
+[node name="CrouchingState" type="Node" parent="PlayerStateMachine" unique_id=1748122795]

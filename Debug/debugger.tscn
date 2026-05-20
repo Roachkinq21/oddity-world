@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://df437f2edvexs"]
+
+[ext_resource type="Script" uid="uid://s1w8y4v3gt8l" path="res://Debug/Debugger.cs" id="1_0mghw"]
+
+[node name="Debugger" type="Control" unique_id=394358109]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0mghw")
+
+[node name="Panel" type="Panel" parent="." unique_id=1616266255]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 1
+offset_left = 13.0
+offset_top = 13.0
+offset_right = 365.0
+offset_bottom = 190.0
+
+[node name="Label" type="Label" parent="Panel" unique_id=1759580736]
+layout_mode = 1
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 103.0
+offset_bottom = 29.0

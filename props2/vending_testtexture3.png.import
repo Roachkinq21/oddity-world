@@ -1,0 +1,38 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://cxmm8u2ajbiba"
+path.s3tc="res://.godot/imported/vending_testtexture3.png-596e1fa5bd84526d00f9b502039d97d8.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "b94a3d99a1912e1917de75fa2e90a7bb"
+}
+
+[deps]
+
+source_file="res://props2/vending_testtexture3.png"
+dest_files=["res://.godot/imported/vending_testtexture3.png-596e1fa5bd84526d00f9b502039d97d8.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0
