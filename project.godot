@@ -14,10 +14,10 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 [application]
 
-config/name="Oddity World"
+config/name="Into The Fog"
+config/tags=PackedStringArray("c#")
 config/features=PackedStringArray("4.6", "C#", "Forward Plus")
 config/icon="res://icon.svg"
-config/tags=PackedStringArray("c#")
 
 [autoload]
 

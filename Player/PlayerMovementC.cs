@@ -23,21 +23,24 @@ public partial class PlayerMovementC : CharacterBody3D
 	[Export(PropertyHint.Range, "0,1")]
 	public float _BobStrength { get; set; } = 0.01f;
 
-	public float _BobSpeed { get; set; } = 100f;
+	public float _BaseBobSpeed { get; set; } = 12f;
+	public float _SprintBobSpeed { get; set; } = 24f;
 
 	public float SprintFov { get; set; } = 85f;
 	public float BaseFov { get; set; } = 75f;
 
-	private Camera3D _camera;
-	private Marker3D _head;
+	public Camera3D _camera;
+	public Marker3D _head;
 
-	private Vector3 _headInitialPosition;
-	private float _bobWeight = 1.0f;
-	private float _currentSpeed;
+	public Vector3 _headInitialPosition;
+	public float _bobWeight = 1.0f;
+	public float _currentSpeed;
+	public float _currentBobSpeed;
+	public float _bobTime = 0f;
 
 	public float Gravity = ProjectSettings.GetSetting("physics/3d/default_gravity").AsSingle();
 
-	public PlayerStateMachine StateMachine { get; private set; }
+	public PlayerStateMachine StateMachine { get; set; }
 
 	public override void _Ready()
 	{
@@ -51,6 +54,7 @@ public partial class PlayerMovementC : CharacterBody3D
 		Input.MouseMode = Input.MouseModeEnum.Captured;
 		_headInitialPosition = _head.Position;
 		_currentSpeed = MovementSpeed;
+		_currentBobSpeed = _BaseBobSpeed;
 
 	}
 
@@ -113,24 +117,25 @@ public partial class PlayerMovementC : CharacterBody3D
 
 		Velocity = velocity;
 		MoveAndSlide();
-		Headbob();
+		Headbob(delta);
 		Pause();
-		Sprint();
+		// Sprint(delta);
 	}
 
-	public void Headbob()
+	public void Headbob(double delta)
 	{
 		if (IsOnFloor() && _direction.Length() > 0.1f)
 		{
 			_bobWeight = Mathf.Lerp(_bobWeight, 1f, 0.1f); // Fade in
+			_bobTime += (float)delta * _currentBobSpeed;
 		}
 		else
 		{
 			_bobWeight = Mathf.Lerp(_bobWeight, 0f, 0.1f); // Fade out
 		}
 
-		float bobY = Mathf.Sin((float)Time.GetTicksMsec() / 100f) * _BobStrength * _bobWeight;
-		float bobX = Mathf.Sin((float)Time.GetTicksMsec() / 200f) * _BobStrength * _bobWeight;
+		float bobY = Mathf.Sin(_bobTime) * _BobStrength * _bobWeight;
+    	float bobX = Mathf.Sin(_bobTime * 0.5f) * _BobStrength * _bobWeight;
 		_head.Position = new Vector3(
 			_headInitialPosition.X + bobX,
 			_headInitialPosition.Y + bobY,
@@ -146,17 +151,19 @@ public partial class PlayerMovementC : CharacterBody3D
 		}
 	}
 
-	public void Sprint()
+	public void Sprint(double delta)
 	{
 		if (Input.IsActionPressed("shift"))
-		{
-			_currentSpeed = MovementSpeed * SprintMultiplier;
-			_camera.Fov = Mathf.Lerp(_camera.Fov, SprintFov, 0.1f);
-		}
-		else
-		{
-			_currentSpeed = MovementSpeed;
-			_camera.Fov = Mathf.Lerp(_camera.Fov, BaseFov, 0.1f);
-		}
+    {
+        _currentSpeed = MovementSpeed * SprintMultiplier;
+        _camera.Fov = Mathf.Lerp(_camera.Fov, SprintFov, (float)delta * 10f);
+        _currentBobSpeed = Mathf.Lerp(_currentBobSpeed, _SprintBobSpeed, (float)delta * 10f);
+    }
+    else
+    {
+        _currentSpeed = MovementSpeed;
+        _camera.Fov = Mathf.Lerp(_camera.Fov, BaseFov, (float)delta * 10f);
+        _currentBobSpeed = Mathf.Lerp(_currentBobSpeed, _BaseBobSpeed, (float)delta * 10f);
+    }
 	}
 }

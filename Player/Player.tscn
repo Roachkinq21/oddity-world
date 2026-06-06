@@ -4,14 +4,17 @@
 [ext_resource type="Script" uid="uid://uqv4bq2g4k64" path="res://Player/PlayerStateMachine.cs" id="2_q3lat"]
 [ext_resource type="Script" uid="uid://db28l2g78fllb" path="res://Player/states/IdleState.cs" id="3_ddoul"]
 [ext_resource type="Script" uid="uid://bofg1okarcly7" path="res://Player/states/WalkingState.cs" id="4_8g4oa"]
+[ext_resource type="Script" uid="uid://ci771d8yrdlf7" path="res://Player/states/SprintState.cs" id="5_8g4oa"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_l2ndj"]
+radius = 0.2788086
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_3qydi"]
+radius = 0.275
 
 [node name="Player" type="CharacterBody3D" unique_id=465011966]
 script = ExtResource("1_3qydi")
-_BobStrength = 0.032
+_BobStrength = 0.025
 
 [node name="Collision3d" type="CollisionShape3D" parent="." unique_id=1891527393]
 shape = SubResource("CapsuleShape3D_l2ndj")
@@ -33,6 +36,11 @@ spot_angle = 31.445127
 
 [node name="Camera3D" type="Camera3D" parent="Head" unique_id=234579315]
 
+[node name="RayCast3D" type="RayCast3D" parent="Head/Camera3D" unique_id=485379278]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+
+[node name="FPS" type="Node3D" parent="Head/Camera3D" unique_id=1475621473]
+
 [node name="PlayerStateMachine" type="Node" parent="." unique_id=67301663 node_paths=PackedStringArray("CurrentState")]
 script = ExtResource("2_q3lat")
 CurrentState = NodePath("IdleState")
@@ -44,3 +52,6 @@ script = ExtResource("3_ddoul")
 script = ExtResource("4_8g4oa")
 
 [node name="CrouchingState" type="Node" parent="PlayerStateMachine" unique_id=1748122795]
+
+[node name="SprintState" type="Node" parent="PlayerStateMachine" unique_id=2145323732]
+script = ExtResource("5_8g4oa")

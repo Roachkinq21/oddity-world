@@ -2,26 +2,28 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://drind75gw2aee"
-path.s3tc="res://.godot/imported/island2_s2 Cement Grey.png-18378efd194aabcf693befac4595cee8.s3tc.ctex"
+uid="uid://cawy3qb6q0ll7"
+path.s3tc="res://.godot/imported/devroom_concrete_pt_4.png-e8ae227d8ac99f8f4f1a13fd5f19e62e.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "c62f9e1367bc8296b0b32a1628584174"
+"md5": "364d600365b40588c965bb7e97829080"
 }
 
 [deps]
 
-source_file="res://meshes/island2_s2 Cement Grey.png"
-dest_files=["res://.godot/imported/island2_s2 Cement Grey.png-18378efd194aabcf693befac4595cee8.s3tc.ctex"]
+source_file="res://meshes/devroom_concrete_pt_4.png"
+dest_files=["res://.godot/imported/devroom_concrete_pt_4.png-e8ae227d8ac99f8f4f1a13fd5f19e62e.s3tc.ctex"]
 
 [params]
 
 compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
+compress/uastc_level=0
+compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
@@ -29,6 +31,10 @@ mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
+process/channel_remap/red=0
+process/channel_remap/green=1
+process/channel_remap/blue=2
+process/channel_remap/alpha=3
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false

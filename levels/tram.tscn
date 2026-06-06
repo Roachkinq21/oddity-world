@@ -280,8 +280,8 @@ transform = Transform3D(-6.103072e-08, -1.3962198, -6.10305e-08, -2.1682472e-22,
 [node name="tram" parent="." unique_id=1846671406 instance=ExtResource("1_riviq")]
 transform = Transform3D(1.35946, 0, 0, 0, 1.35946, 0, 0, 0, 1.35946, 0.458768, 0.45256, -2.36429)
 
-[node name="Player" parent="." unique_id=465011966 instance=ExtResource("2_ik47q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3782187, 4.6907873)
-
 [node name="vending_machine_12" parent="." unique_id=2075056408 instance=ExtResource("5_5gskk")]
 transform = Transform3D(1.3502663, 0, 0, 0, 1.3502663, 0, 0, 0, 1, -0.5909288, -0.4973192, 1.5057755)
+
+[node name="Player" parent="." unique_id=465011966 instance=ExtResource("2_ik47q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.49732083, 6.333725)
