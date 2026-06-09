@@ -10,18 +10,29 @@ sky_material = SubResource("ProceduralSkyMaterial_bvm7p")
 process_mode = 1
 
 [sub_resource type="Environment" id="Environment_6nun2"]
-background_mode = 2
+background_mode = 1
+background_color = Color(0.5449743, 0.54497427, 0.54497427, 1)
 background_energy_multiplier = 0.55
 sky = SubResource("Sky_2fskk")
 ambient_light_source = 1
 ssao_enabled = true
 ssil_enabled = true
-sdfgi_enabled = true
 sdfgi_use_occlusion = true
-sdfgi_bounce_feedback = 1.26
-sdfgi_min_cell_size = 3.0
-sdfgi_energy = 6.195
+sdfgi_bounce_feedback = 0.36
 glow_enabled = true
+glow_normalized = true
+glow_intensity = 1.15
+glow_strength = 0.78
+glow_bloom = 0.3
+fog_mode = 1
+fog_density = 1.0
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.01
+volumetric_fog_albedo = Color(0.69135684, 0.6913568, 0.69135684, 1)
+volumetric_fog_anisotropy = 0.0
+volumetric_fog_length = 64.5
+
+[sub_resource type="FogMaterial" id="FogMaterial_kfbsc"]
 
 [node name="Node3D" type="Node3D" unique_id=805229618]
 
@@ -36,6 +47,13 @@ size = Vector3(6.486084, 20, 6.47583)
 data = ExtResource("2_gbx6r")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1988165391]
-transform = Transform3D(0.9681913, 0.098833464, 0.22986409, 0, -0.918681, 0.3950005, 0.25021106, -0.382436, -0.889459, 0, 0, 0)
+transform = Transform3D(0.9279729, -0.147196, -0.3423444, -6.9703043e-09, -0.9186808, 0.39500037, -0.37264764, -0.36654964, -0.852511, 0, 0, 0)
+light_energy = 0.575
 light_indirect_energy = 1.146
 shadow_enabled = true
+shadow_blur = 5.288
+
+[node name="FogVolume" type="FogVolume" parent="." unique_id=1364225382]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.06332278, 0.9618226, -6.0659533)
+size = Vector3(6.0948486, 2, 2)
+material = SubResource("FogMaterial_kfbsc")
