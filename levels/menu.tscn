@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://dch0wesrml70"]
+
+[ext_resource type="PackedScene" uid="uid://dm5fo7mbu81i4" path="res://meshes/foghouse.glb" id="1_kfbsc"]
+[ext_resource type="VoxelGIData" uid="uid://dhgsjdr4vxoa1" path="res://voxelbake/VoxelGI_data.res" id="2_gbx6r"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_bvm7p"]
+
+[sub_resource type="Sky" id="Sky_2fskk"]
+sky_material = SubResource("ProceduralSkyMaterial_bvm7p")
+process_mode = 1
+
+[sub_resource type="Environment" id="Environment_6nun2"]
+background_mode = 2
+background_energy_multiplier = 0.55
+sky = SubResource("Sky_2fskk")
+ambient_light_source = 1
+ssao_enabled = true
+ssil_enabled = true
+sdfgi_enabled = true
+sdfgi_use_occlusion = true
+sdfgi_bounce_feedback = 1.26
+sdfgi_min_cell_size = 3.0
+sdfgi_energy = 6.195
+glow_enabled = true
+
+[node name="Node3D" type="Node3D" unique_id=805229618]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1783531727]
+environment = SubResource("Environment_6nun2")
+
+[node name="foghouse" parent="." unique_id=1710350656 instance=ExtResource("1_kfbsc")]
+
+[node name="VoxelGI" type="VoxelGI" parent="." unique_id=1342896241]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.58410645, 0, -1.5552979)
+size = Vector3(6.486084, 20, 6.47583)
+data = ExtResource("2_gbx6r")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1988165391]
+transform = Transform3D(0.9681913, 0.098833464, 0.22986409, 0, -0.918681, 0.3950005, 0.25021106, -0.382436, -0.889459, 0, 0, 0)
+light_indirect_energy = 1.146
+shadow_enabled = true
