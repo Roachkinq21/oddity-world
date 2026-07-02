@@ -8,6 +8,8 @@ public partial class IdleState : State
     Vector3 flatVelocity = new Vector3(Global.Player.Velocity.X, 0, Global.Player.Velocity.Z);
     if (flatVelocity.Length() > 0.1f)
         EmitTransition("WalkingState");
+    if(Input.IsActionPressed("crouch"))
+        EmitTransition("CrouchingState");
 }
 
 }

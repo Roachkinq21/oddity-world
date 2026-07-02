@@ -19,5 +19,8 @@ public partial class WalkingState : State
 
     if (Input.IsActionPressed("shift"))
         EmitTransition("SprintState");
+
+    if(Input.IsActionPressed("crouch"))
+        EmitTransition("CrouchingState");
 }
 }
