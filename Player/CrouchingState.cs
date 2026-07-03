@@ -8,6 +8,8 @@ public partial class CrouchingState : State
     {
         base.Enter();
         Global.Player._currentSpeed = Global.Player.MovementSpeed - 0.4f;
+        Global.Player.SetCrouch(true);
+        Global.Player.SetHeadHeight(-0.3f);
         
 
     }
@@ -16,13 +18,18 @@ public partial class CrouchingState : State
     {
         base.Update(delta);
         GD.Print("Crouching!");
-        Global.Player._collision.Hide();
-        Global.Player._collision3dCrouch.Show();
-
-        Global.Player._camera.Position.Y = 2;
 
         if(!Input.IsActionPressed("crouch"))
             EmitTransition("IdleState");
     }
+
+    public override void Exit()
+    {
+        base.Exit();
+        Global.Player.SetHeadHeight(0.0f);
+        Global.Player.SetCrouch(false);
+        
+    }
+
 
 }

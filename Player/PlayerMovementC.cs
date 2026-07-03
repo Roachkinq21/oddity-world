@@ -49,6 +49,8 @@ public partial class PlayerMovementC : CharacterBody3D
 	{
 		_camera = GetNode<Camera3D>("Head/Camera3D");
 		_head = GetNode<Marker3D>("Head");
+		_collision = GetNode<CollisionShape3D>("Collision");
+		_collision3dCrouch = GetNode<CollisionShape3D>("Collision3dCrouch");
 		StateMachine = GetNode<PlayerStateMachine>("PlayerStateMachine");
 
 		// register this player instance
@@ -169,16 +171,23 @@ public partial class PlayerMovementC : CharacterBody3D
         _currentBobSpeed = Mathf.Lerp(_currentBobSpeed, _BaseBobSpeed, (float)delta * 10f);
     }
 	}
+
+	public void SetHeadHeight(float height)
+	{
+		_camera.Position = new Vector3(_camera.Position.X, height, _camera.Position.Z);
+	}
 	
-	public void Crouch(bool crouching)
+	public void SetCrouch(bool crouching)
 	{
 		if (crouching)
 		{
-			return;
+			_collision.Hide();
+			_collision3dCrouch.Show();
 		}
 		else
 		{
-			return;
+			_collision.Show();
+			_collision3dCrouch.Hide();
 		}
 	}
 }

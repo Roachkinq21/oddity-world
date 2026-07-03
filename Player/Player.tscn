@@ -18,7 +18,6 @@ radius = 0.275
 
 [node name="Player" type="CharacterBody3D" unique_id=465011966]
 script = ExtResource("1_3qydi")
-_BobStrength = 0.05
 
 [node name="Collision" type="CollisionShape3D" parent="." unique_id=1891527393]
 shape = SubResource("CapsuleShape3D_l2ndj")
@@ -33,7 +32,7 @@ cast_shadow = 0
 mesh = SubResource("CapsuleMesh_3qydi")
 
 [node name="Head" type="Marker3D" parent="." unique_id=1112093883]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.510141, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4130329, 0)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Head" unique_id=414504045]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.510141, 0)
