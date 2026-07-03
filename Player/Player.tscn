@@ -9,15 +9,23 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_l2ndj"]
 radius = 0.2788086
+height = 1.0
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_3qydi"]
 radius = 0.275
 
+[sub_resource type="BoxMesh" id="BoxMesh_6ysni"]
+
 [node name="Player" type="CharacterBody3D" unique_id=465011966]
 script = ExtResource("1_3qydi")
-_BobStrength = 0.025
+_BobStrength = 0.05
 
-[node name="Collision3d" type="CollisionShape3D" parent="." unique_id=1891527393]
+[node name="Collision" type="CollisionShape3D" parent="." unique_id=1891527393]
+shape = SubResource("CapsuleShape3D_l2ndj")
+
+[node name="Collision3dCrouch" type="CollisionShape3D" parent="." unique_id=1668608096]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+visible = false
 shape = SubResource("CapsuleShape3D_l2ndj")
 
 [node name="Mesh" type="MeshInstance3D" parent="." unique_id=1211093894]
@@ -40,7 +48,11 @@ spot_angle = 31.445127
 [node name="RayCast3D" type="RayCast3D" parent="Head/Camera3D" unique_id=485379278]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
 
-[node name="FPS" type="Node3D" parent="Head/Camera3D" unique_id=1475621473]
+[node name="FPS_Gun" type="Node3D" parent="Head/Camera3D" unique_id=1475621473]
+
+[node name="Gun1" type="MeshInstance3D" parent="Head/Camera3D/FPS_Gun" unique_id=211157886]
+transform = Transform3D(0.14564115, 0, 0, 0, 0.14564115, 0, 0, 0, 0.3538144, 0.3517201, -0.21876645, -0.4467254)
+mesh = SubResource("BoxMesh_6ysni")
 
 [node name="PlayerStateMachine" type="Node" parent="." unique_id=67301663 node_paths=PackedStringArray("CurrentState")]
 script = ExtResource("2_q3lat")

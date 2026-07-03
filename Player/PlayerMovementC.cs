@@ -29,6 +29,9 @@ public partial class PlayerMovementC : CharacterBody3D
 	public float SprintFov { get; set; } = 85f;
 	public float BaseFov { get; set; } = 75f;
 
+	public CollisionShape3D _collision;
+	public CollisionShape3D _collision3dCrouch;
+
 	public Camera3D _camera;
 	public Marker3D _head;
 
@@ -165,5 +168,17 @@ public partial class PlayerMovementC : CharacterBody3D
         _camera.Fov = Mathf.Lerp(_camera.Fov, BaseFov, (float)delta * 10f);
         _currentBobSpeed = Mathf.Lerp(_currentBobSpeed, _BaseBobSpeed, (float)delta * 10f);
     }
+	}
+	
+	public void Crouch(bool crouching)
+	{
+		if (crouching)
+		{
+			return;
+		}
+		else
+		{
+			return;
+		}
 	}
 }
