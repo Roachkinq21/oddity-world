@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://cfbtecbgbug8q"]
+
+[ext_resource type="Script" uid="uid://16ggdfygsx3j" path="res://Monsters/Monster.cs" id="1_ko23x"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_spobo"]
+noise_type = 0
+frequency = 0.0174
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ffmmf"]
+width = 802
+height = 972
+noise = SubResource("FastNoiseLite_spobo")
+seamless = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q4qfe"]
+albedo_color = Color(0.45170248, 0.25058717, 0.2740622, 1)
+albedo_texture = SubResource("NoiseTexture2D_ffmmf")
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_tw4bj"]
+material = SubResource("StandardMaterial3D_q4qfe")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2y8ys"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_vquh2"]
+radius = 3.21875
+
+[node name="Monster" type="CharacterBody3D" unique_id=1474985808]
+script = ExtResource("1_ko23x")
+
+[node name="MonsterMesh" type="MeshInstance3D" parent="." unique_id=847930677]
+mesh = SubResource("CapsuleMesh_tw4bj")
+
+[node name="MonsterBody" type="CollisionShape3D" parent="." unique_id=2083937203]
+shape = SubResource("CapsuleShape3D_2y8ys")
+
+[node name="MonsterDetect" type="Area3D" parent="." unique_id=1996782538]
+collision_layer = 4
+collision_mask = 4
+
+[node name="MonsterDetectRange" type="CollisionShape3D" parent="MonsterDetect" unique_id=2116162124]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.008261681, 0, 0.005232811)
+shape = SubResource("CylinderShape3D_vquh2")
+
+[node name="MonsterStateMachine" type="Node" parent="." unique_id=1184381625]
+
+[node name="Idle" type="Node" parent="MonsterStateMachine" unique_id=975272470]
+
+[node name="Chase" type="Node" parent="MonsterStateMachine" unique_id=371059249]
+
+[node name="Attack" type="Node" parent="MonsterStateMachine" unique_id=1147465537]
+
+[node name="Hurt" type="Node" parent="MonsterStateMachine" unique_id=1362000145]
+
+[connection signal="area_entered" from="MonsterDetect" to="." method="_on_monster_detect_area_entered"]

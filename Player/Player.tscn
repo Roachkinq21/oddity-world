@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://fh1mshwykcx6"]
 
-[ext_resource type="Script" uid="uid://cawisrl45g0ot" path="res://Player/PlayerMovementC.cs" id="1_3qydi"]
+[ext_resource type="Script" uid="uid://3fyhtn3jkxi8" path="res://Player/PlayerMovementC.cs" id="1_3qydi"]
 [ext_resource type="Script" uid="uid://uqv4bq2g4k64" path="res://Player/PlayerStateMachine.cs" id="2_q3lat"]
 [ext_resource type="Script" uid="uid://db28l2g78fllb" path="res://Player/states/IdleState.cs" id="3_ddoul"]
 [ext_resource type="Script" uid="uid://bofg1okarcly7" path="res://Player/states/WalkingState.cs" id="4_8g4oa"]
-[ext_resource type="Script" uid="uid://sp7u8r8sg2xf" path="res://Player/CrouchingState.cs" id="5_6ysni"]
+[ext_resource type="Script" path="res://Player/CrouchingState.cs" id="5_6ysni"]
 [ext_resource type="Script" uid="uid://ci771d8yrdlf7" path="res://Player/states/SprintState.cs" id="5_8g4oa"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_l2ndj"]
@@ -17,6 +17,8 @@ radius = 0.275
 [sub_resource type="BoxMesh" id="BoxMesh_6ysni"]
 
 [node name="Player" type="CharacterBody3D" unique_id=465011966]
+collision_layer = 4
+collision_mask = 13
 script = ExtResource("1_3qydi")
 
 [node name="Collision" type="CollisionShape3D" parent="." unique_id=1891527393]

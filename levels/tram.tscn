@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://besnobc35j00m" path="res://props2/chairs.glb" id="3_ik47q"]
 [ext_resource type="PackedScene" uid="uid://cdos1horgky6" path="res://props2/vending_machine_1.glb" id="5_5gskk"]
 [ext_resource type="VoxelGIData" uid="uid://cv50q50tdlb1m" path="res://levels/tram.VoxelGI_data.res" id="6_lbrnd"]
+[ext_resource type="PackedScene" uid="uid://cfbtecbgbug8q" path="res://Monsters/monsterProto.tscn" id="7_3ecc3"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_xvwsq"]
 sky_top_color = Color(0.546103, 0.615893, 0.713092, 1)
@@ -286,5 +287,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.417816, 0, -23.00293)
 size = Vector3(63.122498, 20, 83.603516)
 data = ExtResource("6_lbrnd")
 
+[node name="Monster" parent="." unique_id=1474985808 instance=ExtResource("7_3ecc3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1, 0)
+
 [node name="Player" parent="." unique_id=465011966 instance=ExtResource("2_ik47q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 6)

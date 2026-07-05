@@ -20,6 +20,7 @@ public partial class SprintState : State
         if (!Input.IsActionPressed("shift"))
             EmitTransition("WalkingState");
             
+        
     }
     
 

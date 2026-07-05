@@ -10,12 +10,14 @@ sky_material = SubResource("ProceduralSkyMaterial_bvm7p")
 process_mode = 1
 
 [sub_resource type="Environment" id="Environment_6nun2"]
-background_mode = 1
-background_color = Color(0.5449743, 0.54497427, 0.54497427, 1)
-background_energy_multiplier = 0.55
+background_color = Color(0.5211406, 0.5211406, 0.5211405, 1)
+background_energy_multiplier = 2.4
 sky = SubResource("Sky_2fskk")
 ambient_light_source = 1
 ssao_enabled = true
+ssao_radius = 1.1
+ssao_intensity = 4.97
+ssao_power = 1.2613432
 ssil_enabled = true
 sdfgi_use_occlusion = true
 sdfgi_bounce_feedback = 0.36
@@ -33,6 +35,16 @@ volumetric_fog_anisotropy = 0.0
 volumetric_fog_length = 64.5
 
 [sub_resource type="FogMaterial" id="FogMaterial_kfbsc"]
+density = 3.17
+
+[sub_resource type="SystemFont" id="SystemFont_kfbsc"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_gbx6r"]
+font = SubResource("SystemFont_kfbsc")
+font_size = 28
+outline_size = 4
+outline_color = Color(0.19070148, 0.20983034, 0.20959774, 1)
+shadow_color = Color(0, 0, 0, 0.56078434)
 
 [node name="Node3D" type="Node3D" unique_id=805229618]
 
@@ -48,12 +60,33 @@ data = ExtResource("2_gbx6r")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1988165391]
 transform = Transform3D(0.9279729, -0.147196, -0.3423444, -6.9703043e-09, -0.9186808, 0.39500037, -0.37264764, -0.36654964, -0.852511, 0, 0, 0)
-light_energy = 0.575
-light_indirect_energy = 1.146
+light_energy = 0.533
+light_indirect_energy = 2.451
+light_volumetric_fog_energy = 2.095
 shadow_enabled = true
-shadow_blur = 5.288
+shadow_bias = 0.0
+shadow_normal_bias = 3.763
+shadow_blur = 1.418
 
 [node name="FogVolume" type="FogVolume" parent="." unique_id=1364225382]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.06332278, 0.9618226, -6.0659533)
-size = Vector3(6.0948486, 2, 2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05853367, 0.9618226, -6.018277)
+size = Vector3(6.0948486, 2, 2.1010742)
 material = SubResource("FogMaterial_kfbsc")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1774693917]
+transform = Transform3D(0.44017425, 0, -0.8979124, 0, 1, 0, 0.8979124, 0, 0.44017425, 0, 0.56396484, -1.7877141)
+
+[node name="Control" type="Control" parent="." unique_id=496396105]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Control" unique_id=2111967894]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Into The Fog"
+label_settings = SubResource("LabelSettings_gbx6r")
