@@ -19,7 +19,7 @@ public partial class Monster : CharacterBody3D
         _monsterDetect = GetNode<Area3D>("MonsterDetect");
         _monsterDetect.AreaEntered += _on_monster_detect_area_entered;
 
-        StateMachineAttribute = GetNode<MonsterStateMachine>("MonsterStateMachine");
+        MonsterStateMachine = GetNode<MonsterStateMachine>("MonsterStateMachine");
     }
 
 

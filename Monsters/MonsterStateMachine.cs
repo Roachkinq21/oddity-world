@@ -1,9 +1,10 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 
 public partial class MonsterStateMachine : Node
 {
-        [Export] public State CurrentState { get; set; }
+    [Export] public State CurrentState { get; set; }
     private Dictionary<string, State> _states = new();
 
 
