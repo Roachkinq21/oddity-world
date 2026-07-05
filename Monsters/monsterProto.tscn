@@ -51,4 +51,6 @@ shape = SubResource("CylinderShape3D_vquh2")
 
 [node name="Hurt" type="Node" parent="MonsterStateMachine" unique_id=1362000145]
 
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=2146531471]
+
 [connection signal="area_entered" from="MonsterDetect" to="." method="_on_monster_detect_area_entered"]

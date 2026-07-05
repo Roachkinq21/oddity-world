@@ -4,12 +4,14 @@
 [ext_resource type="Script" uid="uid://uqv4bq2g4k64" path="res://Player/PlayerStateMachine.cs" id="2_q3lat"]
 [ext_resource type="Script" uid="uid://db28l2g78fllb" path="res://Player/states/IdleState.cs" id="3_ddoul"]
 [ext_resource type="Script" uid="uid://bofg1okarcly7" path="res://Player/states/WalkingState.cs" id="4_8g4oa"]
-[ext_resource type="Script" path="res://Player/CrouchingState.cs" id="5_6ysni"]
+[ext_resource type="Script" uid="uid://dum67bras53kh" path="res://Player/states/CrouchingState.cs" id="5_6ysni"]
 [ext_resource type="Script" uid="uid://ci771d8yrdlf7" path="res://Player/states/SprintState.cs" id="5_8g4oa"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_l2ndj"]
 radius = 0.2788086
 height = 1.0
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_6ysni"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_3qydi"]
 radius = 0.275
@@ -20,6 +22,7 @@ radius = 0.275
 collision_layer = 4
 collision_mask = 13
 script = ExtResource("1_3qydi")
+_BobStrength = 0.04
 
 [node name="Collision" type="CollisionShape3D" parent="." unique_id=1891527393]
 shape = SubResource("CapsuleShape3D_l2ndj")
@@ -28,6 +31,13 @@ shape = SubResource("CapsuleShape3D_l2ndj")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 visible = false
 shape = SubResource("CapsuleShape3D_l2ndj")
+
+[node name="DetectBox" type="Area3D" parent="." unique_id=57846057]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DetectBox" unique_id=1848552395]
+shape = SubResource("CylinderShape3D_6ysni")
 
 [node name="Mesh" type="MeshInstance3D" parent="." unique_id=1211093894]
 cast_shadow = 0

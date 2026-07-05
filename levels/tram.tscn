@@ -8,6 +8,12 @@
 [ext_resource type="VoxelGIData" uid="uid://cv50q50tdlb1m" path="res://levels/tram.VoxelGI_data.res" id="6_lbrnd"]
 [ext_resource type="PackedScene" uid="uid://cfbtecbgbug8q" path="res://Monsters/monsterProto.tscn" id="7_3ecc3"]
 
+[sub_resource type="NavigationMesh" id="NavigationMesh_3ecc3"]
+vertices = PackedVector3Array(-22.805809, 3.4429252, -57.554466, -10.305809, 3.4429252, -57.554466, -10.055809, 3.4429252, -58.054466, -22.805809, 3.4429252, -61.054466, -9.055809, 3.4429252, -58.054466, -8.805809, 3.4429252, -57.554466, 3.694191, 3.4429252, -57.554466, 3.944191, 3.4429252, -58.054466, 4.694191, 3.4429252, -58.054466, 4.944191, 3.4429252, -57.554466, 17.444191, 3.4429252, -57.554466, 17.444191, 3.4429252, -61.054466, 9.444191, 3.6929252, -41.804466, 18.944191, 3.6929252, -41.804466, 18.944191, 3.6929252, -56.554466, -39.30581, 3.6929252, -56.554466, -39.30581, 3.6929252, -41.304466, -23.305809, 3.6929252, -41.304466, -14.305809, 3.6929252, -41.304466, 9.194191, 3.6929252, -41.304466, -36.80581, -0.057074785, -52.054466, -36.80581, -0.057074785, -48.804466, -32.80581, -0.057074785, -48.804466, -21.305809, -0.057074785, -52.054466, -21.305809, -0.057074785, -48.804466, 17.194191, -0.057074785, -48.804466, 17.194191, -0.057074785, -56.554466, -21.055809, -0.057074785, -56.554466, -38.30581, -0.057074785, -56.304466, -38.30581, -0.057074785, -16.054466, -38.05581, -0.057074785, -53.054466, -22.305809, -0.057074785, -53.304466, -22.305809, -0.057074785, -56.304466, -36.80581, -0.057074785, -15.804466, -33.05581, -0.057074785, -15.804466, 0.944191, -0.057074785, -20.804466, 7.194191, -0.057074785, -20.804466, 7.194191, -0.057074785, -22.304466, -1.055809, -0.057074785, -22.554466, -21.055809, -0.057074785, -44.304466, -4.805809, -0.057074785, -44.054466, -1.055809, -0.057074785, -44.054466, 17.194191, -0.057074785, -44.304466, -0.30580902, -0.057074785, -20.804466, -5.055809, -0.057074785, -20.804466, -6.305809, -0.057074785, -20.804466, -4.805809, -0.057074785, -22.554466, -13.055809, -0.057074785, -22.304466, -13.055809, -0.057074785, -20.804466, -22.805809, -0.057074785, -44.304466, -22.305809, -0.057074785, -43.554466, -22.305809, -0.057074785, -47.554466, -31.055809, -0.057074785, -44.054466, -31.805809, -0.057074785, -47.554466, -31.805809, -0.057074785, -16.054466, -31.055809, -0.057074785, -16.054466, 0.19419098, -0.057074785, -43.054466, 0.19419098, -0.057074785, -23.554466, 1.194191, -0.057074785, -23.554466, 1.194191, -0.057074785, -43.054466, -39.30581, 3.6929252, -15.804466, -23.555809, 3.6929252, -15.804466, 11.694191, 3.4429252, -24.554466, 11.944191, 3.4429252, -23.304466, 13.444191, 3.4429252, -23.304466, 13.444191, 3.4429252, -26.054466, -14.055809, 3.6929252, -26.304466, -19.055809, 3.4429252, -26.054466, -19.055809, 3.4429252, -24.554466, 7.444191, 3.6929252, -24.554466, 9.194191, 3.6929252, -26.304466, -19.055809, 3.4429252, -23.304466, -16.805809, 3.4429252, -23.054466, -2.055809, 3.6929252, 0.94553375, 3.944191, 3.6929252, 0.94553375, 4.194191, 3.6929252, -1.8044662, -3.055809, 3.6929252, 0.94553375, -16.805809, 3.4429252, 0.94553375, 7.194191, 3.6929252, -1.8044662, 8.194191, 6.9429255, -1.0544662, 4.944191, 6.9429255, -0.80446625, 4.944191, 6.9429255, -0.30446625, 22.444191, 7.1929255, -0.30446625, 18.944191, 7.1929255, -0.80446625, 10.944191, 6.9429255, -1.0544662, 22.194191, 6.9429255, -5.5544662, 19.194191, 6.9429255, -5.5544662, 10.944191, 6.9429255, -23.554466, 8.194191, 6.9429255, -23.554466, 33.19419, 6.9429255, -1.0544662, 29.944191, 6.9429255, -0.80446625, 29.694191, 6.9429255, -0.30446625, 43.94419, 6.9429255, -0.30446625, 43.94419, 6.9429255, -0.80446625, 36.19419, 6.9429255, -1.0544662, 36.19419, 6.9429255, -23.554466, 33.19419, 6.9429255, -23.554466, 5.194191, 3.6929252, 8.195534, 7.194191, 3.6929252, 8.195534, 7.444191, 3.6929252, 1.6955338, 5.194191, 3.6929252, -0.55446625, 18.194191, 3.6929252, 1.6955338, 18.194191, 3.6929252, -0.55446625, 10.694191, 3.4429252, -0.80446625, 8.444191, 3.6929252, -0.80446625, 10.694191, 3.4429252, -23.304466, 8.444191, 3.6929252, -23.304466, 8.444191, -0.057074785, -22.304466, 8.444191, -0.057074785, 1.6955338, 9.194191, -0.057074785, 1.6955338, 9.194191, -0.057074785, -22.304466, -13.055809, -0.057074785, -11.804466, -6.305809, -0.057074785, -11.804466, -5.055809, -0.057074785, -11.804466, -0.30580902, -0.057074785, -11.804466, 0.944191, -0.057074785, -11.804466, 7.194191, -0.057074785, -11.804466, 2.944191, -0.057074785, -10.304466, 7.194191, -0.057074785, -10.304466, -8.305809, -0.057074785, -10.304466, -13.055809, -0.057074785, -10.304466, -1.555809, -0.057074785, 2.4455338, -1.805809, -0.057074785, 1.9455338, -8.555809, -0.057074785, 1.6955338, -13.055809, -0.057074785, 2.4455338, 3.194191, -0.057074785, 1.6955338, 0.694191, -0.057074785, 1.9455338, 0.44419098, -0.057074785, 2.4455338, 7.194191, -0.057074785, 2.4455338, -7.305809, -0.057074785, -9.054466, -7.305809, -0.057074785, 0.69553375, 1.944191, -0.057074785, 0.69553375, 1.944191, -0.057074785, -9.054466, 28.944191, 7.1929255, 8.945534, 32.44419, 6.9429255, 8.695534, 32.69419, 6.9429255, 1.9455338, 43.94419, 6.9429255, 1.9455338, 5.444191, 7.1929255, 11.945534, 5.694191, 7.1929255, 30.695534, 28.944191, 7.1929255, 30.695534, 4.694191, 6.9429255, 9.195534, -17.055809, 6.9429255, 9.195534, -17.055809, 6.9429255, 11.945534, 21.944191, 3.6929252, -0.30446625, 19.944191, 3.6929252, -0.30446625, 19.944191, 3.6929252, 2.6955338, 21.944191, 3.6929252, 27.445534, 19.444191, 3.6929252, 2.9455338, 19.444191, 3.6929252, 27.445534, 23.194191, 3.6929252, 9.695534, 29.194191, 3.6929252, 9.695534, 28.944191, 3.6929252, -0.30446625, 23.194191, 3.6929252, -0.30446625, 32.44419, 3.6929252, 1.6955338, 39.19419, 3.6929252, 1.6955338, 39.19419, 3.6929252, -0.30446625, 30.194191, 3.6929252, -0.30446625, 30.194191, 3.6929252, 8.445534, 32.19419, 3.6929252, 8.445534, -1.805809, 3.6929252, 1.9455338, -3.055809, 3.6929252, 2.1955338, 3.944191, 3.6929252, 8.195534, -16.805809, 3.4429252, 8.195534, -13.055809, -0.057074785, 8.195534, -11.805809, -0.057074785, 8.195534, -11.555809, -0.057074785, 7.6955338, 14.944191, 3.1929252, 8.195534, 7.444191, -0.057074785, 2.9455338, 7.5830803, -0.057074785, 8.056648, 14.944191, 3.1929252, 2.9455338, 8.694191, 0.19292521, 2.9455338, 8.444191, 3.6929252, 2.9455338, 8.444191, 3.6929252, 8.195534, 9.194191, 3.6929252, 8.195534, 9.194191, 3.6929252, 2.9455338, 15.944191, 3.6929252, 2.9455338, 15.944191, 3.6929252, 8.195534, 16.944191, 3.6929252, 8.445534, 18.194191, 3.6929252, 2.9455338, 15.944191, 3.6929252, 12.945534, 15.944191, 3.6929252, 28.695534, 18.444191, 3.6929252, 28.695534, 16.944191, 3.6929252, 12.695534, 39.19419, 3.6929252, 9.695534, 39.19419, 3.6929252, 2.9455338, 33.44419, 3.6929252, 2.9455338, 33.19419, 3.6929252, 9.695534, -16.805809, 3.4429252, 9.445534, -16.805809, 3.4429252, 11.695534, 15.694191, 3.6929252, 11.695534, 15.694191, 3.6929252, 9.445534, 39.19419, 3.6929252, 28.695534, 22.944191, 3.6929252, 28.695534, 15.944191, 3.6929252, 30.695534, 39.19419, 3.6929252, 30.695534)
+polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(5, 4, 6), PackedInt32Array(6, 4, 7), PackedInt32Array(9, 8, 10), PackedInt32Array(10, 8, 11), PackedInt32Array(4, 2, 3), PackedInt32Array(7, 4, 11), PackedInt32Array(11, 4, 3), PackedInt32Array(11, 8, 7), PackedInt32Array(14, 13, 12), PackedInt32Array(17, 16, 15), PackedInt32Array(12, 19, 18), PackedInt32Array(17, 15, 18), PackedInt32Array(18, 15, 12), PackedInt32Array(12, 15, 14), PackedInt32Array(22, 21, 20), PackedInt32Array(24, 22, 23), PackedInt32Array(23, 22, 20), PackedInt32Array(23, 27, 24), PackedInt32Array(24, 27, 26), PackedInt32Array(24, 26, 25), PackedInt32Array(29, 28, 30), PackedInt32Array(31, 30, 32), PackedInt32Array(32, 30, 28), PackedInt32Array(33, 21, 34), PackedInt32Array(34, 21, 22), PackedInt32Array(36, 35, 37), PackedInt32Array(37, 35, 38), PackedInt32Array(39, 24, 40), PackedInt32Array(40, 24, 41), PackedInt32Array(41, 24, 42), PackedInt32Array(42, 24, 25), PackedInt32Array(38, 35, 43), PackedInt32Array(38, 43, 44), PackedInt32Array(45, 46, 44), PackedInt32Array(44, 46, 38), PackedInt32Array(48, 47, 45), PackedInt32Array(45, 47, 46), PackedInt32Array(46, 40, 38), PackedInt32Array(38, 40, 41), PackedInt32Array(51, 50, 49), PackedInt32Array(49, 52, 51), PackedInt32Array(51, 52, 53), PackedInt32Array(55, 54, 52), PackedInt32Array(52, 54, 53), PackedInt32Array(59, 58, 56), PackedInt32Array(56, 58, 57), PackedInt32Array(60, 16, 61), PackedInt32Array(61, 16, 17), PackedInt32Array(63, 62, 64), PackedInt32Array(64, 62, 65), PackedInt32Array(67, 66, 68), PackedInt32Array(68, 66, 69), PackedInt32Array(65, 62, 70), PackedInt32Array(70, 62, 69), PackedInt32Array(70, 69, 19), PackedInt32Array(19, 69, 66), PackedInt32Array(19, 66, 18), PackedInt32Array(71, 68, 72), PackedInt32Array(72, 68, 69), PackedInt32Array(75, 74, 73), PackedInt32Array(75, 73, 76), PackedInt32Array(76, 77, 75), PackedInt32Array(75, 77, 72), PackedInt32Array(75, 72, 69), PackedInt32Array(69, 78, 75), PackedInt32Array(80, 79, 81), PackedInt32Array(81, 79, 84), PackedInt32Array(81, 84, 83), PackedInt32Array(81, 83, 82), PackedInt32Array(86, 85, 83), PackedInt32Array(83, 85, 82), PackedInt32Array(79, 88, 84), PackedInt32Array(84, 88, 87), PackedInt32Array(90, 89, 91), PackedInt32Array(91, 89, 94), PackedInt32Array(91, 94, 93), PackedInt32Array(91, 93, 92), PackedInt32Array(89, 96, 94), PackedInt32Array(94, 96, 95), PackedInt32Array(98, 97, 99), PackedInt32Array(99, 97, 100), PackedInt32Array(100, 104, 99), PackedInt32Array(99, 104, 103), PackedInt32Array(99, 103, 102), PackedInt32Array(99, 102, 101), PackedInt32Array(104, 106, 103), PackedInt32Array(103, 106, 105), PackedInt32Array(110, 109, 107), PackedInt32Array(107, 109, 108), PackedInt32Array(48, 45, 111), PackedInt32Array(111, 45, 112), PackedInt32Array(44, 43, 113), PackedInt32Array(113, 43, 114), PackedInt32Array(35, 36, 115), PackedInt32Array(115, 36, 116), PackedInt32Array(118, 117, 116), PackedInt32Array(116, 117, 115), PackedInt32Array(119, 112, 113), PackedInt32Array(114, 115, 117), PackedInt32Array(120, 111, 119), PackedInt32Array(119, 111, 112), PackedInt32Array(113, 114, 119), PackedInt32Array(119, 114, 117), PackedInt32Array(122, 121, 123), PackedInt32Array(123, 121, 124), PackedInt32Array(119, 123, 120), PackedInt32Array(120, 123, 124), PackedInt32Array(126, 125, 127), PackedInt32Array(127, 125, 128), PackedInt32Array(117, 118, 125), PackedInt32Array(125, 118, 128), PackedInt32Array(132, 131, 129), PackedInt32Array(129, 131, 130), PackedInt32Array(134, 133, 135), PackedInt32Array(135, 133, 91), PackedInt32Array(91, 133, 82), PackedInt32Array(136, 135, 92), PackedInt32Array(92, 135, 91), PackedInt32Array(82, 133, 137), PackedInt32Array(137, 133, 138), PackedInt32Array(138, 133, 139), PackedInt32Array(140, 81, 137), PackedInt32Array(137, 81, 82), PackedInt32Array(141, 140, 142), PackedInt32Array(142, 140, 137), PackedInt32Array(144, 143, 145), PackedInt32Array(145, 143, 146), PackedInt32Array(147, 145, 148), PackedInt32Array(148, 145, 146), PackedInt32Array(152, 151, 149), PackedInt32Array(149, 151, 150), PackedInt32Array(154, 153, 155), PackedInt32Array(155, 153, 156), PackedInt32Array(158, 157, 153), PackedInt32Array(153, 157, 156), PackedInt32Array(159, 73, 74), PackedInt32Array(159, 74, 160), PackedInt32Array(160, 74, 161), PackedInt32Array(77, 160, 162), PackedInt32Array(162, 160, 161), PackedInt32Array(77, 76, 160), PackedInt32Array(164, 163, 165), PackedInt32Array(165, 163, 124), PackedInt32Array(166, 168, 167), PackedInt32Array(167, 168, 121), PackedInt32Array(121, 168, 165), PackedInt32Array(121, 165, 124), PackedInt32Array(127, 128, 167), PackedInt32Array(121, 127, 167), PackedInt32Array(167, 170, 166), PackedInt32Array(166, 170, 169), PackedInt32Array(174, 173, 171), PackedInt32Array(171, 173, 172), PackedInt32Array(176, 175, 177), PackedInt32Array(177, 175, 178), PackedInt32Array(179, 182, 180), PackedInt32Array(180, 182, 181), PackedInt32Array(177, 178, 182), PackedInt32Array(182, 178, 181), PackedInt32Array(184, 183, 185), PackedInt32Array(185, 183, 186), PackedInt32Array(190, 189, 187), PackedInt32Array(187, 189, 188), PackedInt32Array(186, 183, 191), PackedInt32Array(192, 149, 150), PackedInt32Array(186, 191, 150), PackedInt32Array(150, 191, 192), PackedInt32Array(193, 180, 181), PackedInt32Array(192, 193, 181), PackedInt32Array(191, 194, 192), PackedInt32Array(192, 194, 193)]
+sample_partition_type = 1
+geometry_parsed_geometry_type = 0
+
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_xvwsq"]
 sky_top_color = Color(0.546103, 0.615893, 0.713092, 1)
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -45,16 +51,28 @@ adjustment_saturation = 1.05
 [node name="Tram" type="Node3D" unique_id=627905749]
 
 [node name="Debugger" parent="." unique_id=394358109 instance=ExtResource("1_cbjh3")]
+metadata/_edit_use_anchors_ = true
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1206006556]
-transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 8.43858, 0)
+[node name="Monster" parent="." unique_id=1474985808 instance=ExtResource("7_3ecc3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1.6280727, 0)
+
+[node name="Player" parent="." unique_id=465011966 instance=ExtResource("2_ik47q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 5)
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=935499412]
+navigation_mesh = SubResource("NavigationMesh_3ecc3")
+
+[node name="Level" type="Node3D" parent="NavigationRegion3D" unique_id=196143702]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="NavigationRegion3D/Level" unique_id=1206006556]
+transform = Transform3D(-0.86602354, -0.43301606, 0.25000072, 0, 0.49999818, 0.86602646, -0.5000033, 0.7499993, -0.4330102, 0, 8.43858, 0)
 visible = false
 shadow_enabled = true
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=16556096]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="NavigationRegion3D/Level" unique_id=16556096]
 environment = SubResource("Environment_1vixn")
 
-[node name="OmniLight3D2" type="OmniLight3D" parent="." unique_id=2047190121]
+[node name="OmniLight3D2" type="OmniLight3D" parent="NavigationRegion3D/Level" unique_id=2047190121]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1746, 2.65313, 4.82273)
 light_color = Color(0.522086, 0.602925, 0.419774, 1)
 light_energy = 0.924
@@ -64,7 +82,7 @@ light_specular = 1.255
 shadow_enabled = true
 omni_range = 10.3896
 
-[node name="OmniLight3D3" type="OmniLight3D" parent="." unique_id=2142079347]
+[node name="OmniLight3D3" type="OmniLight3D" parent="NavigationRegion3D/Level" unique_id=2142079347]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.191818, 2.65313, 4.82273)
 light_color = Color(0.6214747, 0.70645964, 0.51834404, 1)
 light_energy = 1.604
@@ -74,7 +92,7 @@ light_specular = 1.255
 shadow_enabled = true
 omni_range = 10.3896
 
-[node name="OmniLight3D10" type="OmniLight3D" parent="." unique_id=405198500]
+[node name="OmniLight3D10" type="OmniLight3D" parent="NavigationRegion3D/Level" unique_id=405198500]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.516107, 2.1306093, 4.6126137)
 light_color = Color(0.71627635, 0.74202156, 0.66592, 1)
 light_energy = 0.924
@@ -84,7 +102,7 @@ light_specular = 1.255
 shadow_enabled = true
 omni_range = 10.3896
 
-[node name="OmniLight3D6" type="OmniLight3D" parent="." unique_id=1881964519]
+[node name="OmniLight3D6" type="OmniLight3D" parent="NavigationRegion3D/Level" unique_id=1881964519]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.2615, 2.51651, -3.72441)
 light_color = Color(0.522086, 0.602925, 0.419774, 1)
 light_energy = 0.924
@@ -93,7 +111,7 @@ light_size = 0.302
 shadow_enabled = true
 omni_range = 8.82559
 
-[node name="OmniLight3D7" type="OmniLight3D" parent="." unique_id=1127812533]
+[node name="OmniLight3D7" type="OmniLight3D" parent="NavigationRegion3D/Level" unique_id=1127812533]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.4519, 2.03683, -18.608)
 light_color = Color(0.522086, 0.602925, 0.419774, 1)
 light_energy = 0.924
@@ -104,7 +122,7 @@ light_specular = 1.428
 shadow_enabled = true
 omni_range = 13.6258
 
-[node name="OmniLight3D11" type="OmniLight3D" parent="." unique_id=1834527693]
+[node name="OmniLight3D11" type="OmniLight3D" parent="NavigationRegion3D/Level" unique_id=1834527693]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.45192, 2.03683, -18.608)
 light_color = Color(0.522086, 0.602925, 0.419774, 1)
 light_energy = 0.924
@@ -115,7 +133,7 @@ light_specular = 1.428
 shadow_enabled = true
 omni_range = 13.6258
 
-[node name="OmniLight3D20" type="OmniLight3D" parent="." unique_id=1039375619]
+[node name="OmniLight3D20" type="OmniLight3D" parent="NavigationRegion3D/Level" unique_id=1039375619]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.45192, 2.5367432, -12.00676)
 light_color = Color(0.522086, 0.602925, 0.419774, 1)
 light_energy = 0.924
@@ -126,7 +144,7 @@ light_specular = 1.428
 shadow_enabled = true
 omni_range = 46.809048
 
-[node name="OmniLight3D12" type="OmniLight3D" parent="." unique_id=1303046387]
+[node name="OmniLight3D12" type="OmniLight3D" parent="NavigationRegion3D/Level" unique_id=1303046387]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.45192, 2.03683, -26.608)
 light_color = Color(0.522086, 0.602925, 0.419774, 1)
 light_energy = 0.924
@@ -137,7 +155,7 @@ light_specular = 1.428
 shadow_enabled = true
 omni_range = 13.6258
 
-[node name="OmniLight3D13" type="OmniLight3D" parent="." unique_id=2080257562]
+[node name="OmniLight3D13" type="OmniLight3D" parent="NavigationRegion3D/Level" unique_id=2080257562]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.45192, 2.03683, -36.608)
 light_color = Color(0.522086, 0.602925, 0.419774, 1)
 light_energy = 0.924
@@ -148,7 +166,7 @@ light_specular = 1.428
 shadow_enabled = true
 omni_range = 13.6258
 
-[node name="OmniLight3D14" type="OmniLight3D" parent="." unique_id=646794380]
+[node name="OmniLight3D14" type="OmniLight3D" parent="NavigationRegion3D/Level" unique_id=646794380]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.45192, 2.03683, -48.608)
 light_color = Color(0.522086, 0.602925, 0.419774, 1)
 light_energy = 0.924
@@ -159,7 +177,7 @@ light_specular = 1.428
 shadow_enabled = true
 omni_range = 13.6258
 
-[node name="OmniLight3D17" type="OmniLight3D" parent="." unique_id=170111698]
+[node name="OmniLight3D17" type="OmniLight3D" parent="NavigationRegion3D/Level" unique_id=170111698]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.8088, 2.03683, -48.608)
 light_color = Color(0.522086, 0.602925, 0.419774, 1)
 light_energy = 0.924
@@ -170,7 +188,7 @@ light_specular = 1.428
 shadow_enabled = true
 omni_range = 13.6258
 
-[node name="OmniLight3D18" type="OmniLight3D" parent="." unique_id=99513624]
+[node name="OmniLight3D18" type="OmniLight3D" parent="NavigationRegion3D/Level" unique_id=99513624]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.8088, 2.03683, -40.754)
 light_color = Color(0.522086, 0.602925, 0.419774, 1)
 light_energy = 0.924
@@ -181,7 +199,7 @@ light_specular = 1.428
 shadow_enabled = true
 omni_range = 13.6258
 
-[node name="OmniLight3D19" type="OmniLight3D" parent="." unique_id=362840434]
+[node name="OmniLight3D19" type="OmniLight3D" parent="NavigationRegion3D/Level" unique_id=362840434]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.8088, 2.03683, -28.0427)
 light_color = Color(0.522086, 0.602925, 0.419774, 1)
 light_energy = 0.924
@@ -192,7 +210,7 @@ light_specular = 1.428
 shadow_enabled = true
 omni_range = 13.6258
 
-[node name="OmniLight3D15" type="OmniLight3D" parent="." unique_id=1393170917]
+[node name="OmniLight3D15" type="OmniLight3D" parent="NavigationRegion3D/Level" unique_id=1393170917]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.54808, 2.03683, -48.608)
 light_color = Color(0.522086, 0.602925, 0.419774, 1)
 light_energy = 0.924
@@ -203,7 +221,7 @@ light_specular = 1.428
 shadow_enabled = true
 omni_range = 13.6258
 
-[node name="OmniLight3D16" type="OmniLight3D" parent="." unique_id=606868518]
+[node name="OmniLight3D16" type="OmniLight3D" parent="NavigationRegion3D/Level" unique_id=606868518]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.4519, 2.03683, -48.608)
 light_color = Color(0.522086, 0.602925, 0.419774, 1)
 light_energy = 0.924
@@ -214,7 +232,7 @@ light_specular = 1.428
 shadow_enabled = true
 omni_range = 13.6258
 
-[node name="OmniLight3D9" type="OmniLight3D" parent="." unique_id=1719756934]
+[node name="OmniLight3D9" type="OmniLight3D" parent="NavigationRegion3D/Level" unique_id=1719756934]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.4766, 5.61139, 10.8017)
 light_color = Color(0.522086, 0.602925, 0.419774, 1)
 light_energy = 0.924
@@ -223,16 +241,16 @@ light_size = 0.302
 shadow_enabled = true
 omni_range = 11.2561
 
-[node name="OmniLight3D4" type="OmniLight3D" parent="." unique_id=511567501]
-transform = Transform3D(0.99985, 0, 0.0173128, 0, 1, 0, -0.0173128, 0, 0.99985, 3.92214, 2.32995, -1.56727)
+[node name="OmniLight3D4" type="OmniLight3D" parent="NavigationRegion3D/Level" unique_id=511567501]
+transform = Transform3D(0.99985015, 0, 0.017312806, 0, 1, 0, -0.017312804, 0, 0.99985015, 3.92214, 2.32995, -1.56727)
 light_color = Color(0.522086, 0.602925, 0.419774, 1)
 light_energy = 0.924
 light_indirect_energy = 1.278
 light_size = 0.302
 shadow_enabled = true
 
-[node name="OmniLight3D5" type="OmniLight3D" parent="." unique_id=1528601884]
-transform = Transform3D(0.99985015, 0, 0.017312806, 0, 1, 0, -0.017312804, 0, 0.99985015, 3.80074, 2.5119588, -8.57881)
+[node name="OmniLight3D5" type="OmniLight3D" parent="NavigationRegion3D/Level" unique_id=1528601884]
+transform = Transform3D(0.99985015, 0, 0.017312804, 0, 1, 0, -0.017312804, 0, 0.99985015, 3.80074, 2.5119588, -8.57881)
 light_color = Color(0.522086, 0.602925, 0.419774, 1)
 light_energy = 0.924
 light_indirect_energy = 1.278
@@ -240,55 +258,49 @@ light_size = 0.302
 shadow_enabled = true
 omni_range = 15.848314
 
-[node name="chairs" parent="." unique_id=1421759971 instance=ExtResource("3_ik47q")]
+[node name="chairs" parent="NavigationRegion3D/Level" unique_id=1421759971 instance=ExtResource("3_ik47q")]
 transform = Transform3D(1.39622, 0, 0, 0, -6.10305e-08, 1.39622, 0, -1.39622, -6.10305e-08, -5.13404, -0.204431, 8.11696)
 
-[node name="chairs2" parent="." unique_id=736333916 instance=ExtResource("3_ik47q")]
+[node name="chairs2" parent="NavigationRegion3D/Level" unique_id=736333916 instance=ExtResource("3_ik47q")]
 transform = Transform3D(1.39622, 0, 0, 0, -6.10305e-08, 1.39622, 0, -1.39622, -6.10305e-08, -9.13404, -0.204431, 8.11696)
 
-[node name="chairs3" parent="." unique_id=2031613263 instance=ExtResource("3_ik47q")]
+[node name="chairs3" parent="NavigationRegion3D/Level" unique_id=2031613263 instance=ExtResource("3_ik47q")]
 transform = Transform3D(1.39622, 0, 0, 0, -6.10305e-08, 1.39622, 0, -1.39622, -6.10305e-08, -1.13404, -0.19621083, 8.077189)
 
-[node name="chairs4" parent="." unique_id=332368800 instance=ExtResource("3_ik47q")]
+[node name="chairs4" parent="NavigationRegion3D/Level" unique_id=332368800 instance=ExtResource("3_ik47q")]
 transform = Transform3D(-1.3962198, 1.2206142e-07, 5.3354555e-15, 0, -6.10305e-08, 1.3962198, 1.2206142e-07, 1.3962198, 6.10305e-08, -5.13404, -0.204431, 1.6635036)
 
-[node name="chairs5" parent="." unique_id=1775850551 instance=ExtResource("3_ik47q")]
+[node name="chairs5" parent="NavigationRegion3D/Level" unique_id=1775850551 instance=ExtResource("3_ik47q")]
 transform = Transform3D(1.8309214e-07, 1.3962198, 6.103049e-08, 4.3364923e-22, -6.103049e-08, 1.3962198, 1.3962198, -1.8309214e-07, -8.003184e-15, 0.8659601, -0.204431, -14.336496)
 
-[node name="chairs6" parent="." unique_id=1339691164 instance=ExtResource("3_ik47q")]
+[node name="chairs6" parent="NavigationRegion3D/Level" unique_id=1339691164 instance=ExtResource("3_ik47q")]
 transform = Transform3D(-6.103072e-08, -1.3962198, -6.10305e-08, -2.1682472e-22, -6.10305e-08, 1.3962198, -1.3962198, 6.103072e-08, 2.6677281e-15, -0.13403988, -0.204431, -14.336496)
 
-[node name="chairs7" parent="." unique_id=1726442186 instance=ExtResource("3_ik47q")]
+[node name="chairs7" parent="NavigationRegion3D/Level" unique_id=1726442186 instance=ExtResource("3_ik47q")]
 transform = Transform3D(1.8309214e-07, 1.3962198, 6.103049e-08, 4.3364923e-22, -6.103049e-08, 1.3962198, 1.3962198, -1.8309214e-07, -8.003184e-15, 0.8659601, -0.204431, -18.336496)
 
-[node name="chairs8" parent="." unique_id=1696684638 instance=ExtResource("3_ik47q")]
+[node name="chairs8" parent="NavigationRegion3D/Level" unique_id=1696684638 instance=ExtResource("3_ik47q")]
 transform = Transform3D(-6.103072e-08, -1.3962198, -6.10305e-08, -2.1682472e-22, -6.10305e-08, 1.3962198, -1.3962198, 6.103072e-08, 2.6677281e-15, -0.13403988, -0.204431, -18.336496)
 
-[node name="chairs9" parent="." unique_id=765554230 instance=ExtResource("3_ik47q")]
+[node name="chairs9" parent="NavigationRegion3D/Level" unique_id=765554230 instance=ExtResource("3_ik47q")]
 transform = Transform3D(1.8309214e-07, 1.3962198, 6.103049e-08, 4.3364923e-22, -6.103049e-08, 1.3962198, 1.3962198, -1.8309214e-07, -8.003184e-15, -5.13404, -0.204431, -14.336496)
 
-[node name="chairs10" parent="." unique_id=198419152 instance=ExtResource("3_ik47q")]
+[node name="chairs10" parent="NavigationRegion3D/Level" unique_id=198419152 instance=ExtResource("3_ik47q")]
 transform = Transform3D(-6.103072e-08, -1.3962198, -6.10305e-08, -2.1682472e-22, -6.10305e-08, 1.3962198, -1.3962198, 6.103072e-08, 2.6677281e-15, -6.13404, -0.204431, -14.336496)
 
-[node name="chairs11" parent="." unique_id=1746684385 instance=ExtResource("3_ik47q")]
+[node name="chairs11" parent="NavigationRegion3D/Level" unique_id=1746684385 instance=ExtResource("3_ik47q")]
 transform = Transform3D(1.8309214e-07, 1.3962198, 6.103049e-08, 4.3364923e-22, -6.103049e-08, 1.3962198, 1.3962198, -1.8309214e-07, -8.003184e-15, -5.13404, -0.204431, -18.336496)
 
-[node name="chairs12" parent="." unique_id=1291290362 instance=ExtResource("3_ik47q")]
+[node name="chairs12" parent="NavigationRegion3D/Level" unique_id=1291290362 instance=ExtResource("3_ik47q")]
 transform = Transform3D(-6.103072e-08, -1.3962198, -6.10305e-08, -2.1682472e-22, -6.10305e-08, 1.3962198, -1.3962198, 6.103072e-08, 2.6677281e-15, -6.13404, -0.204431, -18.336496)
 
-[node name="tram" parent="." unique_id=1846671406 instance=ExtResource("1_riviq")]
+[node name="tram" parent="NavigationRegion3D/Level" unique_id=1846671406 instance=ExtResource("1_riviq")]
 transform = Transform3D(1.35946, 0, 0, 0, 1.35946, 0, 0, 0, 1.35946, 0.458768, 0.45256, -2.36429)
 
-[node name="vending_machine_12" parent="." unique_id=2075056408 instance=ExtResource("5_5gskk")]
+[node name="vending_machine_12" parent="NavigationRegion3D/Level" unique_id=2075056408 instance=ExtResource("5_5gskk")]
 transform = Transform3D(1.3502663, 0, 0, 0, 1.3502663, 0, 0, 0, 1, -0.5909288, -0.4973192, 1.5057755)
 
-[node name="VoxelGI" type="VoxelGI" parent="." unique_id=1409153067]
+[node name="VoxelGI" type="VoxelGI" parent="NavigationRegion3D/Level" unique_id=1409153067]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.417816, 0, -23.00293)
 size = Vector3(63.122498, 20, 83.603516)
 data = ExtResource("6_lbrnd")
-
-[node name="Monster" parent="." unique_id=1474985808 instance=ExtResource("7_3ecc3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1, 0)
-
-[node name="Player" parent="." unique_id=465011966 instance=ExtResource("2_ik47q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 6)
