@@ -54,10 +54,10 @@ adjustment_saturation = 1.05
 metadata/_edit_use_anchors_ = true
 
 [node name="Monster" parent="." unique_id=1474985808 instance=ExtResource("7_3ecc3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1.6280727, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.60754037, 0)
 
 [node name="Player" parent="." unique_id=465011966 instance=ExtResource("2_ik47q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45748675, 5)
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=935499412]
 navigation_mesh = SubResource("NavigationMesh_3ecc3")

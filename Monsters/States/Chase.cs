@@ -8,6 +8,12 @@ public partial class Chase : State
         base.Enter();
     }
 
+    public override void PhysicsUpdate(double delta)
+    {
+        base.PhysicsUpdate(delta);
+    }
+
+
     public override void Exit()
     {
         base.Exit();
