@@ -41,6 +41,11 @@ public partial class MonsterStateMachine : Node
 
     private void OnChildTransition(string newStateName)
     {
+        ChangeState(newStateName);
+    }
+
+    private void ChangeState(string newStateName)
+    {
         if(_states.TryGetValue(newStateName, out State newState))
         {
             if(newState != CurrentState)
