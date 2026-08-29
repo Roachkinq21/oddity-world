@@ -1,5 +1,4 @@
 using Godot;
-using System;
 
 public partial class CrouchingState : State
 {
@@ -7,17 +6,20 @@ public partial class CrouchingState : State
     public override void Enter()
     {
         base.Enter();
-        Global.Player._currentSpeed = Global.Player.MovementSpeed - 0.4f;
+        Global.Player.CurrentSpeed = Global.Player.MovementSpeed - 0.4f;
         Global.Player.SetCrouch(true);
-        Global.Player.SetHeadHeight(-0.3f);
-        
+
+
 
     }
 
     public override void Update(double delta)
     {
         base.Update(delta);
-        GD.Print("Crouching!");
+        Global.Player.Camera.Position = Global.Player.Camera.Position.Lerp(
+            new Vector3(Global.Player.Camera.Position.X, -0.3f, Global.Player.Camera.Position.Z),
+            (float)delta * 10f);
+
 
         if(!Input.IsActionPressed("crouch"))
             EmitTransition("IdleState");

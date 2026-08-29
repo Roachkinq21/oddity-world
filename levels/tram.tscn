@@ -125,9 +125,9 @@ omni_range = 13.6258
 [node name="OmniLight3D11" type="OmniLight3D" parent="NavigationRegion3D/Level" unique_id=1834527693]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.45192, 2.03683, -18.608)
 light_color = Color(0.522086, 0.602925, 0.419774, 1)
-light_energy = 0.924
-light_indirect_energy = 1.278
-light_volumetric_fog_energy = 0.861
+light_energy = 2.482
+light_indirect_energy = 5.615
+light_volumetric_fog_energy = 1.072
 light_size = 0.302
 light_specular = 1.428
 shadow_enabled = true

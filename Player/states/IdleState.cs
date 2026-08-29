@@ -5,7 +5,7 @@ public partial class IdleState : State
 {
     public override void Update(double delta)
 {
-    Global.Player._camera.Fov = Mathf.Lerp(Global.Player._camera.Fov, Global.Player.BaseFov, (float)delta * 10f);
+    Global.Player.Camera.Fov = Mathf.Lerp(Global.Player.Camera.Fov, Global.Player.BaseFov, (float)delta * 10f);
 
     Vector3 flatVelocity = new Vector3(Global.Player.Velocity.X, 0, Global.Player.Velocity.Z);
 

@@ -6,14 +6,14 @@ public partial class WalkingState : State
 
     public override void Enter()
     {
-        Global.Player._currentSpeed = Global.Player.MovementSpeed;
-        Global.Player._currentBobSpeed = Global.Player._BaseBobSpeed;
+        Global.Player.CurrentSpeed = Global.Player.MovementSpeed;
+        Global.Player.CurrentBobSpeed = Global.Player.BaseBobSpeed;
     }
 
 
     public override void Update(double delta)
 {
-    Global.Player._camera.Fov = Mathf.Lerp(Global.Player._camera.Fov, Global.Player.BaseFov, (float)delta * 10f);
+    Global.Player.Camera.Fov = Mathf.Lerp(Global.Player.Camera.Fov, Global.Player.BaseFov, (float)delta * 10f);
 
     Vector3 flatVelocity = new Vector3(Global.Player.Velocity.X, 0, Global.Player.Velocity.Z);
     if (flatVelocity.Length() < 0.1f)

@@ -9,7 +9,7 @@ public partial class Monster : CharacterBody3D
 
     public bool Alert {get;set;}
 
-    public Area3D _monsterDetect;
+    public Area3D MonsterDetect;
 
     public MonsterStateMachine MonsterStateMachine{get;set;}
     public NavigationAgent3D NavigationAgent{get;set;}
@@ -19,10 +19,10 @@ public partial class Monster : CharacterBody3D
 
     public override void _Ready()
     {
-        _monsterDetect = GetNode<Area3D>("MonsterDetect");
+        MonsterDetect = GetNode<Area3D>("MonsterDetect");
 
-        _monsterDetect.AreaEntered += _on_monster_detect_area_entered;
-        _monsterDetect.AreaExited += _on_monster_detect_area_exited;
+        MonsterDetect.AreaEntered += _on_monster_detect_area_entered;
+        MonsterDetect.AreaExited += _on_monster_detect_area_exited;
         
         NavigationAgent = GetNode<NavigationAgent3D>("NavigationAgent3D");
 
@@ -56,7 +56,7 @@ public partial class Monster : CharacterBody3D
     {
         GD.Print("Player Spotted!");
         Alert = true;
-        MonsterStateMachine.
+        // MonsterStateMachine.CurrentState;
     }
 
     private void _on_monster_detect_area_exited(Area3D area)
