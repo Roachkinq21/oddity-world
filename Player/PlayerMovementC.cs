@@ -11,21 +11,31 @@ public partial class PlayerMovementC : CharacterBody3D
     [Export(PropertyHint.Range, "0,5")] public float AirLerpSpeed { get; set; } = 3f;
 
     [Export(PropertyHint.Range, "0,5")] public float MouseSens { get; set; } = 0.25f;
+
+    [Export(PropertyHint.Range, "0,5")] public float JoystickLookSensitivity { get; set; } = 1.5f;
+
     Vector3 _direction = Vector3.Zero;
 
     [Export(PropertyHint.Range, "0,1")] public float BobStrength { get; set; } = 0.01f;
+    
+    [ExportGroup("Camera")]
+    public float BaseBobSpeed { get; private set; } = 12f;
+    public float SprintBobSpeed { get; private set; } = 24f;
 
-    public float BaseBobSpeed { get; set; } = 12f;
-    public float SprintBobSpeed { get; set; } = 24f;
-
-    public float SprintFov { get; set; } = 85f;
-    public float BaseFov { get; set; } = 75f;
+    public float SprintFov { get; private set; } = 85f;
+    public float BaseFov { get; private set; } = 75f;
 
     private CollisionShape3D _collision;
     private CollisionShape3D _collision3DCrouch;
 
     public Camera3D Camera;
     private Marker3D _head;
+
+    [ExportCategory("Weapon Sway")]
+    private Node3D _fpsGun;
+    private Vector2 _swayMin;
+    private Vector2 _swayMax;
+    
 
     private Vector3 _headInitialPosition;
     private float _bobWeight = 1.0f;
@@ -35,7 +45,7 @@ public partial class PlayerMovementC : CharacterBody3D
 
     public float Gravity = ProjectSettings.GetSetting("physics/3d/default_gravity").AsSingle();
 
-    public PlayerStateMachine StateMachine { get; set; }
+    public PlayerStateMachine StateMachine { get; private set; }
 
     public override void _Ready()
     {
@@ -44,6 +54,7 @@ public partial class PlayerMovementC : CharacterBody3D
         _collision = GetNode<CollisionShape3D>("Collision");
         _collision3DCrouch = GetNode<CollisionShape3D>("Collision3dCrouch");
         StateMachine = GetNode<PlayerStateMachine>("PlayerStateMachine");
+        _fpsGun = GetNode<Node3D>("FPS_Gun");
 
         // register this player instance
         Global.Player = this;
@@ -56,38 +67,47 @@ public partial class PlayerMovementC : CharacterBody3D
 
     public override void _Input(InputEvent @event)
     {
-        if (@event is InputEventMouseMotion mouseMotion)
-        {
-            RotateY(Mathf.DegToRad(-mouseMotion.Relative.X * MouseSens));
-            _head.RotateX(Mathf.DegToRad(-mouseMotion.Relative.Y * MouseSens));
-            _head.Rotation = new Vector3(
-                Mathf.Clamp(_head.Rotation.X, -1.25f, 1.5f),
-                _head.Rotation.Y,
-                _head.Rotation.Z
-            );
-        }
+        if (@event is not InputEventMouseMotion mouseMotion) return;
+        RotateY(Mathf.DegToRad(-mouseMotion.Relative.X * MouseSens));
+        _head.RotateX(Mathf.DegToRad(-mouseMotion.Relative.Y * MouseSens));
+        _head.Rotation = new Vector3(
+            Mathf.Clamp(_head.Rotation.X, -1.25f, 1.5f),
+            _head.Rotation.Y,
+            _head.Rotation.Z
+        );
     }
 
     public override void _PhysicsProcess(double delta)
     {
-        float fDelta = (float)delta;
-        Vector3 velocity = Velocity;
+        var fDelta = (float)delta;
+        var velocity = Velocity;
 
         if (!IsOnFloor())
         {
             velocity.Y -= Gravity * fDelta;
         }
 
-        Vector2 inputDir = Input.GetVector("left", "right", "up", "down");
+        var inputDir = Input.GetVector("left", "right", "up", "down");
+        var lookDir = Input.GetVector("look_left", "look_right", "look_up", "look_down");
+
+        if (lookDir.Length() > 0.1f)
+        {
+            RotateY(-lookDir.X * JoystickLookSensitivity * fDelta);
+
+            _head.RotateX(-lookDir.Y * JoystickLookSensitivity * fDelta);
+
+            _head.Rotation = new Vector3(
+                Mathf.Clamp(_head.Rotation.X, -1.25f, 1.5f),
+                _head.Rotation.Y,
+                _head.Rotation.Z
+            );
+        }
 
 
         if (IsOnFloor())
         {
             Vector3 wishDir = Transform.Basis * new Vector3(inputDir.X, 0, inputDir.Y);
-            if (wishDir.Length() > 0.01f)
-                _direction = _direction.Lerp(wishDir, LerpSpeed * (float)delta);
-            else
-                _direction = _direction.Lerp(Vector3.Zero, LerpSpeed * (float)delta);
+            _direction = _direction.Lerp(wishDir.Length() > 0.01f ? wishDir : Vector3.Zero, LerpSpeed * (float)delta);
         }
         else
         {
@@ -117,7 +137,7 @@ public partial class PlayerMovementC : CharacterBody3D
         // Sprint(delta);
     }
 
-    public void Headbob(double delta)
+    private void Headbob(double delta)
     {
         if (IsOnFloor() && _direction.Length() > 0.1f)
         {
@@ -129,8 +149,8 @@ public partial class PlayerMovementC : CharacterBody3D
             _bobWeight = Mathf.Lerp(_bobWeight, 0f, 0.1f); // Fade out
         }
 
-        float bobY = Mathf.Sin(_bobTime) * BobStrength * _bobWeight;
-        float bobX = Mathf.Sin(_bobTime * 0.5f) * BobStrength * _bobWeight;
+        var bobY = Mathf.Sin(_bobTime) * BobStrength * _bobWeight;
+        var bobX = Mathf.Sin(_bobTime * 0.5f) * BobStrength * _bobWeight;
         _head.Position = new Vector3(
             _headInitialPosition.X + bobX,
             _headInitialPosition.Y + bobY,
@@ -138,7 +158,7 @@ public partial class PlayerMovementC : CharacterBody3D
         );
     }
 
-    public void Pause()
+    private void Pause()
     {
         if (Input.IsActionJustPressed("pause"))
         {
@@ -146,7 +166,7 @@ public partial class PlayerMovementC : CharacterBody3D
         }
     }
 
-    public void Sprint(double delta)
+    private void Sprint(double delta)
     {
         if (Input.IsActionPressed("shift"))
         {
@@ -160,6 +180,12 @@ public partial class PlayerMovementC : CharacterBody3D
             Camera.Fov = Mathf.Lerp(Camera.Fov, BaseFov, (float)delta * 10f);
             CurrentBobSpeed = Mathf.Lerp(CurrentBobSpeed, BaseBobSpeed, (float)delta * 10f);
         }
+    }
+
+    private void GunSwing(float delta)
+    {
+        //_fpsGun.Rotation = Mathf.Lerp();
+        return;
     }
 
     public void SetHeadHeight(float height)

@@ -11,7 +11,7 @@ public partial class Monster : CharacterBody3D
 
     public Area3D MonsterDetect;
 
-    public MonsterStateMachine MonsterStateMachine{get;set;}
+    public OddityWorld.Monsters.MonsterStateMachine MonsterStateMachine{get;set;}
     public NavigationAgent3D NavigationAgent{get;set;}
 
     public float Gravity = ProjectSettings.GetSetting("physics/3d/default_gravity").AsSingle();
@@ -26,7 +26,7 @@ public partial class Monster : CharacterBody3D
         
         NavigationAgent = GetNode<NavigationAgent3D>("NavigationAgent3D");
 
-        MonsterStateMachine = GetNode<MonsterStateMachine>("MonsterStateMachine");
+        MonsterStateMachine = GetNode<OddityWorld.Monsters.MonsterStateMachine>("MonsterStateMachine");
 
         Alert = false;
     }

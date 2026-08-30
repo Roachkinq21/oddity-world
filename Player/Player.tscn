@@ -22,7 +22,6 @@ radius = 0.275
 collision_layer = 4
 collision_mask = 13
 script = ExtResource("1_3qydi")
-_BobStrength = 0.04
 
 [node name="Collision" type="CollisionShape3D" parent="." unique_id=1891527393]
 shape = SubResource("CapsuleShape3D_l2ndj")

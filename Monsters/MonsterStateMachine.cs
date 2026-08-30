@@ -1,5 +1,7 @@
 using Godot;
 
+namespace OddityWorld.Monsters;
+
 public partial class MonsterStateMachine : Node
 {
     [Export] public State CurrentState { get; set; }
@@ -8,7 +10,7 @@ public partial class MonsterStateMachine : Node
 
     public override void _Ready()
     {
-        foreach(Node child in GetChildren())
+        foreach(var child in GetChildren())
         {
             if(child is State state)
             {
