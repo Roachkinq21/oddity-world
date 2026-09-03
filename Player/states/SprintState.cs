@@ -1,5 +1,7 @@
 using Godot;
 
+namespace OddityWorld.Player.states;
+
 public partial class SprintState : State
 {
      

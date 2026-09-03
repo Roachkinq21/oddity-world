@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://3fyhtn3jkxi8" path="res://Player/PlayerMovementC.cs" id="1_3qydi"]
 [ext_resource type="Script" uid="uid://uqv4bq2g4k64" path="res://Player/PlayerStateMachine.cs" id="2_q3lat"]
+[ext_resource type="Script" uid="uid://d2lovwjuyh1nb" path="res://Player/Flashlight.cs" id="2_vlldt"]
 [ext_resource type="Script" uid="uid://db28l2g78fllb" path="res://Player/states/IdleState.cs" id="3_ddoul"]
 [ext_resource type="Script" uid="uid://bofg1okarcly7" path="res://Player/states/WalkingState.cs" id="4_8g4oa"]
 [ext_resource type="Script" uid="uid://dum67bras53kh" path="res://Player/states/CrouchingState.cs" id="5_6ysni"]
@@ -22,6 +23,7 @@ radius = 0.275
 collision_layer = 4
 collision_mask = 13
 script = ExtResource("1_3qydi")
+MouseSens = 0.12
 
 [node name="Collision" type="CollisionShape3D" parent="." unique_id=1891527393]
 shape = SubResource("CapsuleShape3D_l2ndj")
@@ -45,13 +47,14 @@ mesh = SubResource("CapsuleMesh_3qydi")
 [node name="Head" type="Marker3D" parent="." unique_id=1112093883]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4130329, 0)
 
-[node name="SpotLight3D" type="SpotLight3D" parent="Head" unique_id=414504045]
+[node name="Flashlight" type="SpotLight3D" parent="Head" unique_id=414504045]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.510141, 0)
 light_color = Color(0.84078455, 0.72686476, 0.5671593, 1)
 shadow_enabled = true
 distance_fade_enabled = true
 spot_range = 6.583152
 spot_angle = 31.445127
+script = ExtResource("2_vlldt")
 
 [node name="Camera3D" type="Camera3D" parent="Head" unique_id=234579315]
 

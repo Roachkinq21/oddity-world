@@ -1,5 +1,7 @@
 using Godot;
 
+namespace OddityWorld.Player;
+
 public partial class PlayerMovementC : CharacterBody3D
 {
     [Export(PropertyHint.Range, "0,4")] public float MovementSpeed { get; set; } = 2f;
@@ -30,11 +32,14 @@ public partial class PlayerMovementC : CharacterBody3D
 
     public Camera3D Camera;
     private Marker3D _head;
+    
 
-    [ExportCategory("Weapon Sway")]
+    [ExportCategory("Weapon Sway")] 
+    private Vector3 _weaponInitPosition;
     private Node3D _fpsGun;
-    private Vector2 _swayMin;
-    private Vector2 _swayMax;
+    private float _baseWeaponBobSpeed;
+    private float _baseWeaponBobWeight;
+    private float _weaponSwayAmount = 0.03f;
     
 
     private Vector3 _headInitialPosition;
@@ -44,6 +49,8 @@ public partial class PlayerMovementC : CharacterBody3D
     private float _bobTime;
 
     public float Gravity = ProjectSettings.GetSetting("physics/3d/default_gravity").AsSingle();
+    private Vector2 _mouseInput;
+
 
     public PlayerStateMachine StateMachine { get; private set; }
 
@@ -54,13 +61,14 @@ public partial class PlayerMovementC : CharacterBody3D
         _collision = GetNode<CollisionShape3D>("Collision");
         _collision3DCrouch = GetNode<CollisionShape3D>("Collision3dCrouch");
         StateMachine = GetNode<PlayerStateMachine>("PlayerStateMachine");
-        _fpsGun = GetNode<Node3D>("FPS_Gun");
+        _fpsGun = GetNode<Node3D>("Head/Camera3D/FPS_Gun");
 
         // register this player instance
         Global.Player = this;
 
         Input.MouseMode = Input.MouseModeEnum.Captured;
         _headInitialPosition = _head.Position;
+        _weaponInitPosition = _fpsGun.Position;
         CurrentSpeed = MovementSpeed;
         CurrentBobSpeed = BaseBobSpeed;
     }
@@ -75,6 +83,7 @@ public partial class PlayerMovementC : CharacterBody3D
             _head.Rotation.Y,
             _head.Rotation.Z
         );
+        _mouseInput = mouseMotion.Relative;
     }
 
     public override void _PhysicsProcess(double delta)
@@ -134,6 +143,7 @@ public partial class PlayerMovementC : CharacterBody3D
         MoveAndSlide();
         Headbob(delta);
         Pause();
+        WeaponSway(delta);
         // Sprint(delta);
     }
 
@@ -156,6 +166,27 @@ public partial class PlayerMovementC : CharacterBody3D
             _headInitialPosition.Y + bobY,
             _headInitialPosition.Z
         );
+    }
+
+    private void WeaponSway(double delta)
+    {
+        if (IsOnFloor() && _direction.Length() > 0.1f)
+        {
+            _baseWeaponBobWeight = Mathf.Lerp(_baseWeaponBobWeight, 1f, 0.1f); // Fade in
+            _baseWeaponBobSpeed += (float)delta * CurrentBobSpeed;
+        }
+        else
+        {
+            _baseWeaponBobWeight = Mathf.Lerp(_baseWeaponBobWeight, 0f, 0.1f);
+        }
+        var swayY = Mathf.Sin(_baseWeaponBobSpeed) * BobStrength * _baseWeaponBobWeight;
+        var swayX = Mathf.Sin(_baseWeaponBobSpeed * 0.3f) * BobStrength * _baseWeaponBobWeight;
+        _fpsGun.Position = new Vector3(
+            _weaponInitPosition.X + swayX,
+            _weaponInitPosition.Y + swayY,
+            _weaponInitPosition.Z
+        );
+
     }
 
     private void Pause()
@@ -181,12 +212,7 @@ public partial class PlayerMovementC : CharacterBody3D
             CurrentBobSpeed = Mathf.Lerp(CurrentBobSpeed, BaseBobSpeed, (float)delta * 10f);
         }
     }
-
-    private void GunSwing(float delta)
-    {
-        //_fpsGun.Rotation = Mathf.Lerp();
-        return;
-    }
+    
 
     public void SetHeadHeight(float height)
     {

@@ -1,5 +1,7 @@
 using Godot;
 
+namespace OddityWorld.Player.states;
+
 public partial class CrouchingState : State
 {
 
@@ -21,14 +23,18 @@ public partial class CrouchingState : State
             (float)delta * 10f);
 
 
-        if(!Input.IsActionPressed("crouch"))
+        if (!Input.IsActionPressed("crouch"))
+        {
             EmitTransition("IdleState");
+            
+        }
+        
     }
 
     public override void Exit()
     {
         base.Exit();
-        Global.Player.SetHeadHeight(0.0f);
+        //Global.Player.SetHeadHeight(0.0f);
         Global.Player.SetCrouch(false);
         
     }

@@ -303,4 +303,4 @@ size = Vector3(63.122498, 20, 83.603516)
 data = ExtResource("6_lbrnd")
 
 [node name="Player" parent="." unique_id=465011966 instance=ExtResource("2_ik47q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 7)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 6.087874)

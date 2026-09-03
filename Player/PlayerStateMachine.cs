@@ -1,8 +1,6 @@
 using Godot;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+
+namespace OddityWorld.Player;
 
 public partial class PlayerStateMachine : Node
 {

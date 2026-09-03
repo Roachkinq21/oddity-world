@@ -4,7 +4,7 @@ public partial class Global : Node
 {
     public static Global Instance { get; private set; }
 
-    public static PlayerMovementC Player { get; set; }
+    public static OddityWorld.Player.PlayerMovementC Player { get; set; }
 
     public static Monster Monster { get; set; }
 
