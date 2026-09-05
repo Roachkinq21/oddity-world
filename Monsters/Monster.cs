@@ -19,12 +19,17 @@ public partial class Monster : CharacterBody3D
 
     public override void _Ready()
     {
+        Global.Monster = this;
         MonsterDetect = GetNode<Area3D>("MonsterDetect");
 
         MonsterDetect.AreaEntered += _on_monster_detect_area_entered;
         MonsterDetect.AreaExited += _on_monster_detect_area_exited;
         
         NavigationAgent = GetNode<NavigationAgent3D>("NavigationAgent3D");
+        NavigationAgent.PathDesiredDistance = 0.5f;
+        NavigationAgent.TargetDesiredDistance = 1.0f;
+        NavigationAgent.Radius = 0.5f;
+        NavigationAgent.NavigationLayers = 1;
 
         MonsterStateMachine = GetNode<OddityWorld.Monsters.MonsterStateMachine>("MonsterStateMachine");
 
@@ -54,6 +59,7 @@ public partial class Monster : CharacterBody3D
     //Signal Events
     private void _on_monster_detect_area_entered(Area3D area)
     {
+        if (!IsInGroup("player")) return;
         GD.Print("Player Spotted!");
         Alert = true;
         // MonsterStateMachine.CurrentState;

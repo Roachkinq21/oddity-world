@@ -9,32 +9,35 @@ public partial class Chase : State
 
     public override void PhysicsUpdate(double delta)
     {
-        if (Global.Player == null || Global.Monster == null) return;
+        var monster = Global.Monster;
+        var player = Global.Player;
 
-        // 1. Keep track of where the player is heading
-        Global.Monster.NavigationAgent.TargetPosition = Global.Player.GlobalTransform.Origin;
+        if (monster == null || player == null)
+            return;
 
-        // 2. Fetch the path coordinates
-        Vector3 currentLocation = Global.Monster.GlobalTransform.Origin;
-        Vector3 nextLocation = Global.Monster.NavigationAgent.GetNextPathPosition();
-        
-        // 3. Find the horizontal direction (X and Z)
-        Vector3 direction = (nextLocation - currentLocation).Normalized();
+        var agent = monster.NavigationAgent;
 
-        // 4. Preserve the monster's current Y velocity (gravity calculated in Monster.cs)
-        Vector3 currentVelocity = Global.Monster.Velocity;
-        
-        currentVelocity.X = direction.X * Global.Monster.MovementSpeed;
-        currentVelocity.Z = direction.Z * Global.Monster.MovementSpeed;
+        agent.TargetPosition = player.GlobalPosition;
 
-        // 5. Hand the updated velocity back to the monster
-        Global.Monster.Velocity = currentVelocity;
-        base.PhysicsUpdate(delta);
-
-        if (!Global.Monster.Alert)
+        if (agent.IsNavigationFinished())
         {
-            EmitTransition("Idle");
+            var velocity = monster.Velocity;
+            velocity.X = 0;
+            velocity.Z = 0;
+            monster.Velocity = velocity;
+            return;
         }
+
+        Vector3 nextPosition = agent.GetNextPathPosition();
+        Vector3 direction = monster.GlobalPosition.DirectionTo(nextPosition);
+
+        var chaseVelocity = monster.Velocity;
+        chaseVelocity.X = direction.X * monster.MovementSpeed;
+        chaseVelocity.Z = direction.Z * monster.MovementSpeed;
+        monster.Velocity = chaseVelocity;
+
+        if (!monster.Alert)
+            EmitTransition("Idle");
     }
 
 

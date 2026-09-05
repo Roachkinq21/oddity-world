@@ -30,7 +30,7 @@ material = SubResource("StandardMaterial3D_q4qfe")
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2y8ys"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_vquh2"]
-radius = 3.21875
+radius = 5.6552734
 
 [node name="Monster" type="CharacterBody3D" unique_id=1474985808]
 script = ExtResource("1_ko23x")
@@ -51,8 +51,9 @@ shape = SubResource("CylinderShape3D_vquh2")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=2146531471]
 
-[node name="MonsterStateMachine" type="Node" parent="." unique_id=1184381625]
+[node name="MonsterStateMachine" type="Node" parent="." unique_id=1184381625 node_paths=PackedStringArray("CurrentState")]
 script = ExtResource("2_q4qfe")
+CurrentState = NodePath("Idle")
 
 [node name="Idle" type="Node" parent="MonsterStateMachine" unique_id=975272470]
 script = ExtResource("3_tw4bj")
