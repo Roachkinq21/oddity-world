@@ -19,7 +19,7 @@ radius = 0.275
 
 [sub_resource type="BoxMesh" id="BoxMesh_6ysni"]
 
-[node name="Player" type="CharacterBody3D" unique_id=465011966]
+[node name="Player" type="CharacterBody3D" unique_id=465011966 groups=["Player"]]
 collision_layer = 4
 collision_mask = 13
 script = ExtResource("1_3qydi")
@@ -65,6 +65,7 @@ transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0
 
 [node name="Gun1" type="MeshInstance3D" parent="Head/Camera3D/FPS_Gun" unique_id=211157886]
 transform = Transform3D(0.14564115, 0, 0, 0, 0.14564115, 0, 0, 0, 0.3538144, 0.3517201, -0.21876645, -0.4467254)
+cast_shadow = 0
 mesh = SubResource("BoxMesh_6ysni")
 
 [node name="PlayerStateMachine" type="Node" parent="." unique_id=67301663 node_paths=PackedStringArray("CurrentState")]

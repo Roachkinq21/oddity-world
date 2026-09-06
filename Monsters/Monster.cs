@@ -59,7 +59,7 @@ public partial class Monster : CharacterBody3D
     //Signal Events
     private void _on_monster_detect_area_entered(Area3D area)
     {
-        if (!IsInGroup("player")) return;
+        if (!IsInGroup("Player")) return;
         GD.Print("Player Spotted!");
         Alert = true;
         // MonsterStateMachine.CurrentState;

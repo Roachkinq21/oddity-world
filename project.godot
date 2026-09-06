@@ -34,6 +34,11 @@ window/stretch/aspect="expand"
 
 project/assembly_name="Oddity World"
 
+[global_group]
+
+Player=""
+Monster=""
+
 [input]
 
 left={
