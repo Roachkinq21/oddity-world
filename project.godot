@@ -25,7 +25,6 @@ Global="*uid://b3wqqrm17geth"
 
 [display]
 
-window/size/mode=2
 window/size/borderless=true
 window/size/transparent=true
 window/stretch/aspect="expand"
@@ -33,6 +32,12 @@ window/stretch/aspect="expand"
 [dotnet]
 
 project/assembly_name="Oddity World"
+
+[file_customization]
+
+folder_colors={
+"res://scripts/": "red"
+}
 
 [global_group]
 

@@ -26,6 +26,8 @@ public partial class Monster : CharacterBody3D
         MonsterDetect.AreaExited += _on_monster_detect_area_exited;
         
         NavigationAgent = GetNode<NavigationAgent3D>("NavigationAgent3D");
+        // Raise floor waypoints to the monster's center for distance checks.
+        NavigationAgent.PathHeightOffset = -1f;
         NavigationAgent.PathDesiredDistance = 0.5f;
         NavigationAgent.TargetDesiredDistance = 1.0f;
         NavigationAgent.Radius = 0.5f;
@@ -59,7 +61,7 @@ public partial class Monster : CharacterBody3D
     //Signal Events
     private void _on_monster_detect_area_entered(Area3D area)
     {
-        if (!IsInGroup("Player")) return;
+        if (!area.GetParent().IsInGroup("Player")) return;
         GD.Print("Player Spotted!");
         Alert = true;
         // MonsterStateMachine.CurrentState;
@@ -67,6 +69,7 @@ public partial class Monster : CharacterBody3D
 
     private void _on_monster_detect_area_exited(Area3D area)
     {
+        if (!area.GetParent().IsInGroup("Player")) return;
         GD.Print("Lost Player.");
         Alert = false;
     }

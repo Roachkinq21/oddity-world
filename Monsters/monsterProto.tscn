@@ -29,17 +29,26 @@ albedo_texture = SubResource("NoiseTexture2D_ffmmf")
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_tw4bj"]
 material = SubResource("StandardMaterial3D_q4qfe")
+radius = 0.25732422
+
+[sub_resource type="BoxMesh" id="BoxMesh_6i2tj"]
+size = Vector3(1, 0.29016113, 0.36706543)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2y8ys"]
+radius = 0.27783203
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_vquh2"]
-radius = 5.6552734
+radius = 6.145
 
 [node name="Monster" type="CharacterBody3D" unique_id=1474985808]
 script = ExtResource("1_ko23x")
 
 [node name="MonsterMesh" type="MeshInstance3D" parent="." unique_id=847930677]
 mesh = SubResource("CapsuleMesh_tw4bj")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1016394665]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35491943, -0.32790858)
+mesh = SubResource("BoxMesh_6i2tj")
 
 [node name="MonsterBody" type="CollisionShape3D" parent="." unique_id=2083937203]
 shape = SubResource("CapsuleShape3D_2y8ys")
@@ -49,10 +58,14 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="MonsterDetectRange" type="CollisionShape3D" parent="MonsterDetect" unique_id=2116162124]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.008261681, 0, 0.005232811)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.003255844, 0, 0.012540817)
 shape = SubResource("CylinderShape3D_vquh2")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=2146531471]
+simplify_path = true
+avoidance_enabled = true
+debug_enabled = true
+debug_path_custom_color = Color(0.87177324, 0.3623323, 0.8200949, 1)
 
 [node name="MonsterStateMachine" type="Node" parent="." unique_id=1184381625 node_paths=PackedStringArray("CurrentState")]
 script = ExtResource("2_q4qfe")

@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://bofg1okarcly7" path="res://Player/states/WalkingState.cs" id="4_8g4oa"]
 [ext_resource type="Script" uid="uid://dum67bras53kh" path="res://Player/states/CrouchingState.cs" id="5_6ysni"]
 [ext_resource type="Script" uid="uid://ci771d8yrdlf7" path="res://Player/states/SprintState.cs" id="5_8g4oa"]
+[ext_resource type="PackedScene" uid="uid://vr7uebc60ps5" path="res://UI/inventory.tscn" id="8_s1rgi"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_l2ndj"]
 radius = 0.2788086
@@ -22,7 +23,15 @@ radius = 0.275
 [node name="Player" type="CharacterBody3D" unique_id=465011966 groups=["Player"]]
 collision_layer = 4
 collision_mask = 13
+floor_constant_speed = true
 script = ExtResource("1_3qydi")
+MovementSpeed = null
+SprintMultiplier = null
+LerpSpeed = null
+AirLerpSpeed = null
+MouseSens = null
+JoystickLookSensitivity = null
+BobStrength = null
 
 [node name="Collision" type="CollisionShape3D" parent="." unique_id=1891527393]
 shape = SubResource("CapsuleShape3D_l2ndj")
@@ -62,6 +71,7 @@ script = ExtResource("2_vlldt")
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
 
 [node name="FPS_Gun" type="Node3D" parent="Head/Camera3D" unique_id=1475621473]
+visible = false
 
 [node name="Gun1" type="MeshInstance3D" parent="Head/Camera3D/FPS_Gun" unique_id=211157886]
 transform = Transform3D(0.14564115, 0, 0, 0, 0.14564115, 0, 0, 0, 0.3538144, 0.3517201, -0.21876645, -0.4467254)
@@ -83,3 +93,7 @@ script = ExtResource("5_6ysni")
 
 [node name="SprintState" type="Node" parent="PlayerStateMachine" unique_id=2145323732]
 script = ExtResource("5_8g4oa")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=248725891]
+
+[node name="Inventory" parent="CanvasLayer" unique_id=1417594254 instance=ExtResource("8_s1rgi")]

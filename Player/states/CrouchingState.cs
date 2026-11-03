@@ -19,7 +19,7 @@ public partial class CrouchingState : State
     {
         base.Update(delta);
         Global.Player.Camera.Position = Global.Player.Camera.Position.Lerp(
-            new Vector3(Global.Player.Camera.Position.X, -0.3f, Global.Player.Camera.Position.Z),
+            new Vector3(Global.Player.Camera.Position.X, -0.5f, Global.Player.Camera.Position.Z),
             (float)delta * 10f);
 
 
