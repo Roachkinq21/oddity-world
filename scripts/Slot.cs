@@ -8,11 +8,13 @@ public partial class Slot : PanelContainer
 
     public override void _Ready()
     {
-        return;
+        textureRect = GetNode<TextureRect>("MarginContainer/TextureRect");
+        label = GetNode<Label>("Label");
     }
     
     public void SetSlotData(SlotData SlotData)
     {
-        return;
+        var item_data = SlotData.ItemData;
+        textureRect.Texture = item_data.Texture;
     }
 }

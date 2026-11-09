@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://yy5v5i0m7v22"]
+
+[ext_resource type="Texture2D" uid="uid://cy8qxtxouj4q6" path="res://icon.svg" id="1_w53jm"]
+[ext_resource type="Script" uid="uid://bsutkk36yc7yj" path="res://scripts/Resources/ItemData.cs" id="1_x2iaj"]
+
+[resource]
+script = ExtResource("1_x2iaj")
+ItemName = "a"
+ItemDescription = "asd"
+Texture = ExtResource("1_w53jm")
+metadata/_custom_type_script = "uid://bsutkk36yc7yj"

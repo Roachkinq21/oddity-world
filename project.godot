@@ -36,6 +36,7 @@ project/assembly_name="Oddity World"
 [file_customization]
 
 folder_colors={
+"res://Resource/": "yellow",
 "res://scripts/": "red"
 }
 

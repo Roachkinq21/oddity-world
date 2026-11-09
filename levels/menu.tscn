@@ -3,36 +3,14 @@
 [ext_resource type="PackedScene" uid="uid://dm5fo7mbu81i4" path="res://meshes/foghouse.glb" id="1_kfbsc"]
 [ext_resource type="VoxelGIData" uid="uid://dhgsjdr4vxoa1" path="res://voxelbake/VoxelGI_data.res" id="2_gbx6r"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_bvm7p"]
-
-[sub_resource type="Sky" id="Sky_2fskk"]
-sky_material = SubResource("ProceduralSkyMaterial_bvm7p")
-process_mode = 1
-
-[sub_resource type="Environment" id="Environment_6nun2"]
-background_color = Color(0.5211406, 0.5211406, 0.5211405, 1)
-background_energy_multiplier = 2.4
-sky = SubResource("Sky_2fskk")
-ambient_light_source = 1
+[sub_resource type="Environment" id="Environment_kfbsc"]
+background_mode = 1
+background_color = Color(0.5132329, 0.5132329, 0.5132329, 1)
+background_energy_multiplier = 1.55
+ssr_enabled = true
 ssao_enabled = true
-ssao_radius = 1.1
-ssao_intensity = 4.97
-ssao_power = 1.2613432
 ssil_enabled = true
-sdfgi_use_occlusion = true
-sdfgi_bounce_feedback = 0.36
-glow_enabled = true
-glow_normalized = true
-glow_intensity = 1.15
-glow_strength = 0.78
-glow_bloom = 0.3
-fog_mode = 1
-fog_density = 1.0
-volumetric_fog_enabled = true
-volumetric_fog_density = 0.01
-volumetric_fog_albedo = Color(0.69135684, 0.6913568, 0.69135684, 1)
-volumetric_fog_anisotropy = 0.0
-volumetric_fog_length = 64.5
+sdfgi_enabled = true
 
 [sub_resource type="FogMaterial" id="FogMaterial_kfbsc"]
 density = 3.17
@@ -49,7 +27,7 @@ shadow_color = Color(0, 0, 0, 0.56078434)
 [node name="Node3D" type="Node3D" unique_id=805229618]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1783531727]
-environment = SubResource("Environment_6nun2")
+environment = SubResource("Environment_kfbsc")
 
 [node name="foghouse" parent="." unique_id=1710350656 instance=ExtResource("1_kfbsc")]
 
@@ -74,7 +52,8 @@ size = Vector3(6.0948486, 2, 2.1010742)
 material = SubResource("FogMaterial_kfbsc")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1774693917]
-transform = Transform3D(0.44017425, 0, -0.8979124, 0, 1, 0, 0.8979124, 0, 0.44017425, 0, 0.56396484, -1.7877141)
+transform = Transform3D(0.44017422, -0.20785768, -0.87352264, 0, 0.97283727, -0.23148994, 0.8979124, 0.10189591, 0.42821795, 0, 0.18912336, -1.7877141)
+fov = 48.4
 
 [node name="Control" type="Control" parent="." unique_id=496396105]
 layout_mode = 3

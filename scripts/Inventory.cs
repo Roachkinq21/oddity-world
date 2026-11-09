@@ -9,6 +9,8 @@ public partial class Inventory : PanelContainer
     public override void _Ready()
     {
         gridContainer = GetNode<GridContainer>("MarginContainer/GridContainer");
+        var invData = GD.Load<InventoryData>("res://Resource/TestInv.tres");
+        PopulateItemGrid(invData.SlotDatas);
     }
 
     public void PopulateItemGrid(Godot.Collections.Array<SlotData> slotDatas)

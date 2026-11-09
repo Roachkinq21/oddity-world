@@ -1,6 +1,7 @@
 using Godot;
 using System;
 
+[GlobalClass]
 public partial class SlotData : Resource
 {
     private const int MAXSTACK = 10;
